@@ -1,0 +1,9 @@
+# !!! using mise is recommended in general. !!!
+#
+# Add line separated <user>/<project>
+# See https://copr.fedorainfracloud.org/coprs/
+#
+# For example,
+#
+# kwizart/rpmfusion-free-release-stable
+# rhcontainerbot/podman-next

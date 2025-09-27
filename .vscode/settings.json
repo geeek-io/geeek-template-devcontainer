@@ -1,0 +1,32 @@
+{
+	"[dockercompose]": {
+		"editor.defaultFormatter": "redhat.vscode-yaml"
+	},
+	"containers.composeCommand": "docker compose",
+	"containers.containerCommand": "docker",
+	"containers.contexts.showInStatusBar": true,
+	"docker.lsp.experimental.scout.notPinnedDigest": true,
+	"docker.lsp.experimental.scout.recommendedTag": true,
+	"docker.lsp.telemetry": "off",
+	"editorconfig.generateAuto": false,
+	"editorconfig.showMenuEntry": false,
+	"files.associations": {
+		"*.env": "shellscript"
+	},
+	"mise.updateOpenTerminalsEnvAutomatically": true,
+	"shellcheck.run": "onSave",
+	"yaml.disableDefaultProperties": true,
+	"yaml.format.proseWrap": "always",
+	"yaml.format.singleQuote": true,
+	"yaml.schemas": {
+		"https://raw.githubusercontent.com/docker/vscode-extension/6a88caada42b57090df7ce91ec2a6561b422afe1/misc/empty.json": [
+			"compose*y*ml",
+			"docker-compose*y*ml"
+		]
+	},
+	"yaml.style.flowMapping": "forbid",
+	"yaml.style.flowSequence": "forbid",
+	"evenBetterToml.schema.links": true,
+	"evenBetterToml.semanticTokens": true,
+	"evenBetterToml.taplo.bundled": false
+}

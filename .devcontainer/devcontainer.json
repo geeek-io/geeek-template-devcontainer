@@ -1,0 +1,46 @@
+{
+	"$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"docker.docker",
+				"editorconfig.editorconfig",
+				"exiasr.hadolint",
+				"mkhl.shfmt",
+				"ms-azuretools.vscode-containers",
+				"redhat.vscode-yaml",
+				"tamasfe.even-better-toml",
+				"timonwong.shellcheck"
+			],
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "fish",
+				"terminal.integrated.profiles.linux": {
+					"fish": {
+						"path": "/usr/bin/fish"
+					}
+				}
+			}
+		}
+	},
+	"dockerComposeFile": "compose.yaml",
+	"initializeCommand": [
+		"./.devcontainer/hooks/initialize-command.sh"
+	],
+	"name": "${localWorkspaceFolderBasename}",
+	"postCreateCommand": [
+		"/source.sh",
+		"${containerWorkspaceFolder}/.devcontainer/hooks/post-create.sh"
+	],
+	"postStartCommand": [
+		"/source.sh",
+		"${containerWorkspaceFolder}/.devcontainer/hooks/post-start.sh"
+	],
+	"remoteEnv": {
+		"PATH": "/home/nonroot/.local/share/mise/shims:${containerEnv:PATH}"
+	},
+	"runServices": [
+		"mcp-gateway"
+	],
+	"service": "dev",
+	"workspaceFolder": "/home/nonroot/${localWorkspaceFolderBasename}"
+}

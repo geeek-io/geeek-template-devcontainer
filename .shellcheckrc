@@ -1,0 +1,4 @@
+enable=all
+extended-analysis=true
+external-sources=true
+shell=sh

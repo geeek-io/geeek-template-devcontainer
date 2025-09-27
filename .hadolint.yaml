@@ -1,0 +1,8 @@
+failure-threshold: style
+no-fail: false
+strict-labels: true
+disable-ignore-pragma: false
+trustedRegistries:
+  - docker.io
+ignored:
+  - SC1008

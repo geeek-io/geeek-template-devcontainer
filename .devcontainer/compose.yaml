@@ -1,0 +1,62 @@
+x-anchors:
+  service-common: &service-common
+    attach: false
+    init: true
+    pull_policy: daily
+    logging:
+      driver: local
+
+name: ${WORKSPACE_NAME}
+
+services:
+  dev:
+    <<: *service-common
+    hostname: dev
+    pull_policy: build
+    build:
+      context: ..
+      dockerfile: ./.devcontainer/Dockerfile
+      pull: true
+    environment:
+      DOCKER_HOST: unix:///home/nonroot/docker.sock
+      WORKSPACE_FOLDER: /home/nonroot/${WORKSPACE_NAME}
+      MISE_GLOBAL_CONFIG_FILE: /home/nonroot/${WORKSPACE_NAME}/mise/config.toml
+      MISE_TRUSTED_CONFIG_PATHS: /home/nonroot/${WORKSPACE_NAME}/mise/config.toml
+      MISE_SOPS_AGE_KEY_FILE: /home/nonroot/${WORKSPACE_NAME}/.gitignore.d/age.txt
+      SOPS_AGE_KEY_FILE: /home/nonroot/${WORKSPACE_NAME}/.gitignore.d/age.txt
+    volumes_from:
+      - mcp-gateway
+    volumes:
+      - dev-cache:/home/nonroot/.cache/
+      - mise:/home/nonroot/.local/share/mise/
+
+  mcp-gateway:
+    <<: *service-common
+    hostname: mcp-gateway
+    image: docker/mcp-gateway:v2
+    configs:
+      - mcp-gateway-configs
+    command:
+      - --verify-signatures
+      - --port=8080
+      - --transport=streaming
+      - --config=/mcp-gateway-configs
+      - --secrets=/run/secrets/mcp-gateway-secrets
+      - --servers=ast-grep,context7,deepwiki,llmtxt,memory,semgrep,sequentialthinking
+    volumes:
+      - ..:/home/nonroot/${WORKSPACE_NAME}
+      # For OrbStack
+      # - ~/.orbstack/run/docker.sock:/home/nonroot/docker.sock
+      # For general Docker
+      # - /var/run/docker.sock:/home/nonroot/docker.sock
+
+volumes:
+  dev-cache:
+  mise:
+    name: mise
+
+configs:
+  mcp-gateway-configs:
+    content: |
+      ast-grep:
+        path: /home/nonroot/${WORKSPACE_NAME}

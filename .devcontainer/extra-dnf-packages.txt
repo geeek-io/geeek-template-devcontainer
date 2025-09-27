@@ -1,0 +1,8 @@
+# !!! using mise is recommended in general. !!!
+#
+# Add line separated package names
+#
+# For example,
+#
+# jq
+# unzip

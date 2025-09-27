@@ -1,0 +1,12 @@
+{
+	"recommendations": [
+		"docker.docker",
+		"editorconfig.editorconfig",
+		"exiasr.hadolint",
+		"mkhl.shfmt",
+		"ms-azuretools.vscode-containers",
+		"redhat.vscode-yaml",
+		"tamasfe.even-better-toml",
+		"timonwong.shellcheck"
+	]
+}
