@@ -24,39 +24,41 @@ services:
       MISE_TRUSTED_CONFIG_PATHS: /home/nonroot/${WORKSPACE_NAME}/mise/config.toml
       MISE_SOPS_AGE_KEY_FILE: /home/nonroot/${WORKSPACE_NAME}/.gitignore.d/age.txt
       SOPS_AGE_KEY_FILE: /home/nonroot/${WORKSPACE_NAME}/.gitignore.d/age.txt
-    volumes_from:
-      - mcp-gateway
     volumes:
+      - ..:/home/nonroot/${WORKSPACE_NAME}
       - dev-cache:/home/nonroot/.cache/
       - mise:/home/nonroot/.local/share/mise/
+      # For OrbStack
+      - ~/.orbstack/run/docker.sock:/home/nonroot/docker.sock
+      # For general Docker
+      # - /var/run/docker.sock:/home/nonroot/docker.sock
 
   mcp-gateway:
     <<: *service-common
     hostname: mcp-gateway
-    image: docker/mcp-gateway:v2
+    image: docker/mcp-gateway:dind
+    privileged: true
     configs:
       - mcp-gateway-configs
     command:
       - --verify-signatures
-      - --port=8080
       - --transport=streaming
       - --config=/mcp-gateway-configs
-      - --secrets=/run/secrets/mcp-gateway-secrets
       - --servers=ast-grep,context7,deepwiki,llmtxt,memory,semgrep,sequentialthinking
     volumes:
       - ..:/home/nonroot/${WORKSPACE_NAME}
-      # For OrbStack
-      # - ~/.orbstack/run/docker.sock:/home/nonroot/docker.sock
-      # For general Docker
-      # - /var/run/docker.sock:/home/nonroot/docker.sock
+      - mcp-gateway-dind:/var/lib/docker
 
 volumes:
   dev-cache:
+  mcp-gateway-dind:
+    name: mcp-gateway-dind
   mise:
     name: mise
 
 configs:
   mcp-gateway-configs:
+    name: mcp-gateway-configs
     content: |
       ast-grep:
         path: /home/nonroot/${WORKSPACE_NAME}

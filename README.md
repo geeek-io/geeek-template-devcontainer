@@ -63,7 +63,7 @@ After modifying these files, rebuild the container (**View > Command Palette > D
 If your workflow requires running Docker commands from within the dev container, you need to mount your host's Docker socket.
 
 1.  Open `.devcontainer/compose.yaml`.
-2.  In the `volumes` section of the `mcp-gateway` service, uncomment the line that mounts the Docker socket suitable for your environment (e.g., OrbStack or general Docker).
+2.  In the `volumes` section of the `dev` service, uncomment the line that mounts the Docker socket suitable for your environment (e.g., OrbStack or general Docker).
 
 ### Secret Management (`sops` + `age`)
 
