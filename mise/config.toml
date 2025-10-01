@@ -3,6 +3,8 @@
 min_version = '2025.9.19'
 
 [tools]
+	'node' = '24.9'
+
 	'aqua:jdx/usage'         = '2.2.2'
 	'aqua:microsoft/edit'    = '1.2.0'
 	'aqua:sharkdp/bat'       = '0.25.0'
@@ -20,11 +22,7 @@ min_version = '2025.9.19'
 
 	'aqua:tamasfe/taplo' = '0.10.0'
 
-[env]
-	BAT_PAGER = 'ov --regexp-search --smart-case-sensitive --tab-width 2'
-	EDITOR    = 'edit'
-	PAGER     = "bat --tabs 0 --italic-text always --theme 'Visual Studio Dark+' --style full"
-	VISUAL    = 'code --wait'
+	'aqua:astral-sh/uv' = '0.8.22'
 
 [settings]
 	gpg_verify   = true
@@ -36,11 +34,6 @@ min_version = '2025.9.19'
 	task_output                    = 'replacing'
 	unix_default_file_shell_args   = '/usr/bin/bash -o verbose -o xtrace'
 	unix_default_inline_shell_args = '/usr/bin/bash -c -o verbose -o xtrace'
-
-	env = ['dev', 'stg', 'prod']
-
-	[settings.sops]
-		age_recipients = 'CHANGE-ME'
 
 	[settings.status]
 		missing_tools = 'always'

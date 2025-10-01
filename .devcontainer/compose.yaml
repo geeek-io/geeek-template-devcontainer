@@ -18,47 +18,27 @@ services:
       dockerfile: ./.devcontainer/Dockerfile
       pull: true
     environment:
+      SOPS_AGE_KEY_FILE: /home/nonroot/${WORKSPACE_NAME}/.gitignore.d/age.txt
       DOCKER_HOST: unix:///home/nonroot/docker.sock
-      WORKSPACE_FOLDER: /home/nonroot/${WORKSPACE_NAME}
+      WORKSPACE_DIR: /home/nonroot/${WORKSPACE_NAME}
       MISE_GLOBAL_CONFIG_FILE: /home/nonroot/${WORKSPACE_NAME}/mise/config.toml
       MISE_TRUSTED_CONFIG_PATHS: /home/nonroot/${WORKSPACE_NAME}/mise/config.toml
-      MISE_SOPS_AGE_KEY_FILE: /home/nonroot/${WORKSPACE_NAME}/.gitignore.d/age.txt
-      SOPS_AGE_KEY_FILE: /home/nonroot/${WORKSPACE_NAME}/.gitignore.d/age.txt
     volumes:
       - ..:/home/nonroot/${WORKSPACE_NAME}
       - dev-cache:/home/nonroot/.cache/
       - mise:/home/nonroot/.local/share/mise/
+      - npm:/home/nonroot/.npm/
+      - bun:/home/nonroot/.bun/
       # For OrbStack
       - ~/.orbstack/run/docker.sock:/home/nonroot/docker.sock
       # For general Docker
       # - /var/run/docker.sock:/home/nonroot/docker.sock
 
-  mcp-gateway:
-    <<: *service-common
-    hostname: mcp-gateway
-    image: docker/mcp-gateway:dind
-    privileged: true
-    configs:
-      - mcp-gateway-configs
-    command:
-      - --verify-signatures
-      - --transport=streaming
-      - --config=/mcp-gateway-configs
-      - --servers=ast-grep,context7,deepwiki,llmtxt,memory,semgrep,sequentialthinking
-    volumes:
-      - ..:/home/nonroot/${WORKSPACE_NAME}
-      - mcp-gateway-dind:/var/lib/docker
-
 volumes:
   dev-cache:
-  mcp-gateway-dind:
-    name: mcp-gateway-dind
   mise:
     name: mise
-
-configs:
-  mcp-gateway-configs:
-    name: mcp-gateway-configs
-    content: |
-      ast-grep:
-        path: /home/nonroot/${WORKSPACE_NAME}
+  npm:
+    name: npm
+  bun:
+    name: bun

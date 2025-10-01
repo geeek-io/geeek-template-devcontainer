@@ -4,6 +4,10 @@ mkdir --parents \
 
 # shellcheck disable=SC2016
 echo '
+. "${WORKSPACE_DIR}/var.env"
+export MISE_SOPS_AGE_KEY_FILE="${SOPS_AGE_KEY_FILE}"
+export MISE_SOPS_AGE_RECIPIENTS="${SOPS_AGE_RECIPIENTS}"
+
 eval "$(mise activate bash --shims)"
 	' >>~/.bash_profile
 
@@ -12,17 +16,28 @@ echo '
 eval "$(mise activate bash)"
 	' >>~/.bashrc
 
+# shellcheck disable=SC2016
 echo '
-if status is-interactive
-	mise activate fish | source
-end
+sed -e "/^\$/d" -e "s/=/ /1" -e "s/^/set --global --export /" "$WORKSPACE_DIR/var.env" | source
+set --global --export MISE_SOPS_AGE_KEY_FILE "$SOPS_AGE_KEY_FILE"
+set --global --export MISE_SOPS_AGE_RECIPIENTS "$SOPS_AGE_RECIPIENTS"
+
+mise activate fish --shims | source
+mise activate fish | source
 	' >~/.config/fish/conf.d/0-mise.fish
 
 # shellcheck disable=SC2154
-cd "${WORKSPACE_FOLDER}" || {
+cd "${WORKSPACE_DIR}" || {
 	echo 'cd error'
 	exit 1
 }
+
+# shellcheck disable=SC1091
+. "${WORKSPACE_DIR}/var.env"
+# shellcheck disable=SC2154
+export MISE_SOPS_AGE_KEY_FILE="${SOPS_AGE_KEY_FILE}"
+# shellcheck disable=SC2154
+export MISE_SOPS_AGE_RECIPIENTS="${SOPS_AGE_RECIPIENTS}"
 
 mise install
 

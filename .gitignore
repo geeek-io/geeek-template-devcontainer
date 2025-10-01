@@ -496,6 +496,7 @@ FodyWeavers.xsd
 !.vscode/launch.json
 !.vscode/extensions.json
 !.vscode/*.code-snippets
+!.vscode/mcp.json
 
 # Local History for Visual Studio Code
 .history/
@@ -653,3 +654,10 @@ mise/*.local.toml
 
 # https://mise.jdx.dev/configuration.html#tool-versions
 .tool-versions
+
+# ================================================================
+# Repo revert
+
+!/var.env
+!/mcps/*/var.env
+!/mcps/*/sec.env

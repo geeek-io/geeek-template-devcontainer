@@ -1,0 +1,28 @@
+{
+	"mcpServers": {
+		"github": {
+			"command": "./mcps/run.sh",
+			"args": [
+				"github"
+			],
+			"cwd": "${WORKSPACE_DIR}",
+			"trust": true
+		},
+		"context7": {
+			"command": "./mcps/run.sh",
+			"args": [
+				"context7"
+			],
+			"cwd": "${WORKSPACE_DIR}",
+			"trust": true
+		},
+		"serena": {
+			"command": "./mcps/run.sh",
+			"args": [
+				"serena"
+			],
+			"cwd": "${WORKSPACE_DIR}",
+			"trust": true
+		}
+	}
+}

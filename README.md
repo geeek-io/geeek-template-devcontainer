@@ -12,7 +12,7 @@ This repository provides a development environment template using [VS Code Dev C
 -   ⚡ **Performance**: Persists `mise` tools and caches across rebuilds using named Docker volumes.
 -   🐳 **Docker-in-Docker Ready**: Easily configured for workflows that require running Docker inside the container.
 -   🤫 **Secret Management**: Integrated with `sops` and `age` for securely managing secrets in your repository.
--   🤖 **MCP Gateway**: Includes the [Model Context Protocol (MCP) Gateway](https://hub.docker.com/r/docker/mcp-gateway) for extending the environment with containerized tools.
+-   🤖 **Model Context Protocol (MCP) Integration**: Extends AI agent capabilities with tools like GitHub, Serena, and Context7 through a unified script-based approach.
 
 ## 🚀 Quick Start
 
@@ -78,51 +78,70 @@ This template uses `sops` and `age` to encrypt secrets, allowing you to safely c
     This command outputs the public key to the terminal.
 
 2.  **Configure `sops`**:
-    Open `mise/config.toml` and set the `age_recipients` value to the public key you just generated.
-
-    ```toml
-    # mise/config.toml
-    [settings.sops]
-    age_recipients = "age1..." # Paste your public key here
-    ```
-
-Now you can use `sops` to encrypt and decrypt files. See the [mise documentation](https://mise.jdx.dev/environments/secrets.html) for more details.
-
-### 🤖 Extending with MCP Gateway
-
-This template includes the [Model Context Protocol (MCP) Gateway](https://hub.docker.com/r/docker/mcp-gateway), a proxy that allows AI agents to interact with containerized tools called MCP servers.
-
-The gateway is configured in `.devcontainer/compose.yaml` and is enabled by default.
-
-#### Finding MCP Servers
-
-You can find available MCP servers on the official Docker Hub MCP page:
-
--   **[Docker Hub MCP Catalog](https://hub.docker.com/mcp)**
-
-The catalog includes servers for databases, developer tools, productivity apps, and more.
-
-#### Adding a New MCP Server
-
-To add a new MCP server to your environment, edit the `.devcontainer/compose.yaml` file.
-
-1.  **Enable the server in the gateway**:
-    In the `mcp-gateway` service definition, add the server's name to the comma-separated list in the `--servers` flag.
-
-    For example, to add the `github` server:
+    Open `.devcontainer/compose.yaml`, go to the `dev` service definition, and set the `SOPS_AGE_RECIPIENTS` environment variable to the public key you just generated.
 
     ```yaml
     # .devcontainer/compose.yaml
     services:
-      mcp-gateway:
-        # ... (other gateway configuration)
-        command:
-          # ... (other flags)
-          - --servers=ast-grep,context7,deepwiki,llmtxt,memory,semgrep,sequentialthinking,github # Add 'github' here
+      dev:
+        # ... (other configuration)
+        environment:
+          SOPS_AGE_RECIPIENTS: "CHANGE-ME" # Paste public key here
+					# ... (other environment variables)
     ```
 
-2.  **Rebuild the Dev Container**:
-    After saving `compose.yaml`, run **Dev Containers: Rebuild Container** from the Command Palette (`Ctrl+Shift+P`) to apply the changes.
+3.  **Editing Secrets**:
+    To edit the encrypted file, use the `sops edit` command:
+
+    ```sh
+    sops edit $WORKSPACE_DIR/some-secret.env
+    ```
+
+    This will open the file in your $EDITOR (ms-edit by default) for you to add or modify secrets. When you save and close the editor, `sops` will automatically re-encrypt the file.
+
+### 🤖 Model Context Protocol (MCP) Integration
+
+This project integrates with MCP servers to extend the capabilities of AI agents. It uses a script-based approach for flexibility.
+
+The configuration is managed in:
+-   `.vscode/mcp.json`: For VS Code-based agents.
+-   `.gemini/settings.json`: For the Gemini CLI agent.
+
+Both files point to the `./mcps/run.sh` script, which dynamically launches the requested MCP server.
+
+#### Included MCP Servers
+
+-   **`github`**: Provides tools for interacting with the GitHub API.
+-   **`context7`**: An external tool for context management.
+-   **`serena`**: A local agent for code understanding and manipulation.
+
+#### Adding a New MCP Server
+
+1.  **Create a Server Directory**:
+    Create a new subdirectory inside the `mcps/` directory (e.g., `mcps/my-new-mcp/`).
+
+2.  **Define the Command**:
+    Inside the new directory, create a `command.sh` file that contains the shell command to start your MCP server.
+
+3.  **Add Secrets or Variables (Optional)**:
+    -   If the server requires secrets, create a `sec.env` file in the same directory and encrypt it with `sops`. The `run.sh` script will automatically inject these secrets at runtime.
+    -   For non-secret environment variables, create a `var.env` file.
+
+4.  **Register the Server**:
+    Add a new entry for your server in `.vscode/mcp.json` and/or `.gemini/settings.json`, pointing to the `run.sh` script with the new server's name as an argument.
+
+    ```json
+    // .vscode/mcp.json
+    "servers": {
+      // ... existing servers
+      "my-new-mcp": {
+        "command": [
+          "./mcps/run.sh",
+          "my-new-mcp"
+        ]
+      }
+    }
+    ```
 
 ## 📁 Project Structure
 

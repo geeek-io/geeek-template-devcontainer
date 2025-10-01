@@ -6,7 +6,6 @@ set -o nounset
 set -o verbose
 set -o xtrace
 
-# shellcheck disable=SC2329
 xdnf() {
 	sudo dnf \
 		--refresh \
@@ -21,7 +20,9 @@ sudo chown --recursive \
 	nonroot:nonroot \
 	~/docker.sock \
 	~/.cache/ \
-	~/.local/ ||
+	~/.local/ \
+	~/.npm/ \
+	~/.bun/ ||
 	true
 
 echo "[starting] sourcing ${1}"
