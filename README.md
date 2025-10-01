@@ -87,7 +87,7 @@ This template uses `sops` and `age` to encrypt secrets, allowing you to safely c
         # ... (other configuration)
         environment:
           SOPS_AGE_RECIPIENTS: "CHANGE-ME" # Paste public key here
-					# ... (other environment variables)
+          # ... (other environment variables)
     ```
 
 3.  **Editing Secrets**:
