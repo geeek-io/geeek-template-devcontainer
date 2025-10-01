@@ -10,5 +10,5 @@ WORKSPACE_NAME="$(basename "${PWD}")"
 
 echo "
 WORKSPACE_NAME=${WORKSPACE_NAME}
-	" \
+" \
 	>|./.devcontainer/.env
