@@ -36,7 +36,3 @@ ENTRYPOINT ["/usr/bin/bash", "-c", \
 	"-o", "xtrace"]
 
 CMD ["sleep infinity"]
-
-VOLUME [ \
-	"/home/nonroot/.cache/", \
-	"/home/nonroot/.local/share/mise"]
