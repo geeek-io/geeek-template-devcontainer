@@ -17,16 +17,12 @@ services:
       context: ..
       dockerfile: ./.devcontainer/Dockerfile
       pull: true
-    environment:
-      SOPS_AGE_KEY_FILE: /home/nonroot/${WORKSPACE_NAME}/.gitignore.d/age.txt
-      DOCKER_HOST: unix:///home/nonroot/docker.sock
-      WORKSPACE_DIR: /home/nonroot/${WORKSPACE_NAME}
-      MISE_GLOBAL_CONFIG_FILE: /home/nonroot/${WORKSPACE_NAME}/mise/config.toml
-      MISE_TRUSTED_CONFIG_PATHS: /home/nonroot/${WORKSPACE_NAME}/mise/config.toml
+      args:
+        WORKSPACE_NAME: '${WORKSPACE_NAME}'
     volumes:
       - ..:/home/nonroot/${WORKSPACE_NAME}
       - dev-cache:/home/nonroot/.cache/
-      - mise:/home/nonroot/.local/share/mise/
+      - aqua:/home/nonroot/.local/share/aquaproj-aqua/
       - npm:/home/nonroot/.npm/
       - bun:/home/nonroot/.bun/
       # For OrbStack
@@ -36,8 +32,8 @@ services:
 
 volumes:
   dev-cache:
-  mise:
-    name: mise
+  aqua:
+    name: aqua
   npm:
     name: npm
   bun:

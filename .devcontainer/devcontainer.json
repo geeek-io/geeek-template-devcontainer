@@ -19,30 +19,29 @@
 				"terminal.integrated.defaultProfile.linux": "fish",
 				"terminal.integrated.profiles.linux": {
 					"fish": {
-						"path": "/usr/bin/fish"
+						"path": "/usr/local/bin/fish"
 					}
 				}
 			}
 		}
 	},
 	"dockerComposeFile": "compose.yaml",
+	"features": {
+		"ghcr.io/aquaproj/devcontainer-features/aqua-installer:0.1.6": {
+			"aqua_version": "v2.55.0"
+		}
+	},
 	"initializeCommand": [
 		"./.devcontainer/hooks/initialize-command.sh"
 	],
 	"name": "${localWorkspaceFolderBasename}",
 	"postCreateCommand": [
-		"/source.sh",
-		"${containerWorkspaceFolder}/.devcontainer/hooks/post-create.sh"
+		"${containerWorkspaceFolder}/.devcontainer/hooks/source.sh",
+		"post-create"
 	],
 	"postStartCommand": [
-		"/source.sh",
-		"${containerWorkspaceFolder}/.devcontainer/hooks/post-start.sh"
-	],
-	"remoteEnv": {
-		"PATH": "/home/nonroot/.local/share/mise/shims:${containerEnv:PATH}"
-	},
-	"runServices": [
-		"mcp-gateway"
+		"${containerWorkspaceFolder}/.devcontainer/hooks/source.sh",
+		"post-start"
 	],
 	"service": "dev",
 	"workspaceFolder": "/home/nonroot/${localWorkspaceFolderBasename}"

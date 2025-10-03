@@ -13,21 +13,12 @@ xdnf() {
 		--best \
 		--no-docs \
 		--show-new-leaves \
-		"${@}"
+		"$@"
 }
 
-sudo chown --recursive \
-	nonroot:nonroot \
-	~/docker.sock \
-	~/.cache/ \
-	~/.local/ \
-	~/.npm/ \
-	~/.bun/ ||
-	true
-
-echo "[starting] sourcing ${1}"
+echo "${1}: start"
 
 # shellcheck disable=SC1090
-. "${1}"
+. "/layers/${1}.sh"
 
-echo "[finishied] sourcing ${1}"
+echo "${1}: end"

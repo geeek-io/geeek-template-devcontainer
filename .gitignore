@@ -640,24 +640,10 @@ http-client.private.env.json
 .idea/ApifoxUploaderProjectSetting.xml
 
 # ================================================================
-# Mise
-#  https://github.com/github/gitignore/blob/main/Global/mise.gitignore
-
-# https://mise.jdx.dev/configuration.html
-# https://mise.jdx.dev/configuration/environments.html
-.mise.*.local.toml
-.mise.local.toml
-mise.*.local.toml
-mise.local.toml
-.mise/*.local.toml
-mise/*.local.toml
-
-# https://mise.jdx.dev/configuration.html#tool-versions
-.tool-versions
-
-# ================================================================
 # Repo revert
 
+!/.aqua/**
 !/var.env
+!/sec.env
 !/mcps/*/var.env
 !/mcps/*/sec.env

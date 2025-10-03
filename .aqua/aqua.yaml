@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/main/json-schema/aqua-yaml.json
+
+registries:
+  - type: standard
+    ref: v4.419.0 # renovate: depName=aquaproj/aqua-registry
+
+packages:
+  - import: packages/global.yaml
+    tags:
+      - global
+  - import: packages/ci.yaml
+    tags:
+      - ci
+  - import: packages/local.yaml
+    tags:
+      - local

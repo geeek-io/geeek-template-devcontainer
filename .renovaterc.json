@@ -1,0 +1,16 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": [
+		":approveMajorUpdates",
+		":assignAndReview(ru5j4r0)",
+		":automergeDigest",
+		":automergePatch",
+		":automergePr",
+		":automergeRequireAllStatusChecks",
+		":configMigration",
+		":dependencyDashboard",
+		":docker",
+		":enableRenovate",
+		":enableVulnerabilityAlertsWithLabel(bot)"
+	]
+}

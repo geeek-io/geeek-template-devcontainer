@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/main/json-schema/aqua-yaml.json
+
+packages:
+  - name: FiloSottile/age
+    version: v1.2.1
+
+  - name: docker/cli
+    version: v28.5.0
+
+  - name: fish-shell/fish-shell
+    version: '4.1.1'
+
+  - name: starship/starship
+    version: v1.23.0
+
+  - name: noborus/ov
+    version: v0.43.1
+
+  - name: sharkdp/bat
+    version: v0.25.0
+
+  - name: dalance/procs
+    version: v0.14.10
+
+  - name: ClementTsang/bottom
+    version: '0.11.1'
+
+  - name: dandavison/delta
+    version: '0.18.2'
+
+  - name: sharkdp/fd
+    version: v10.3.0
+
+  - name: BurntSushi/ripgrep
+    version: '14.1.1'
+
+  - name: microsoft/edit
+    version: v1.2.0
