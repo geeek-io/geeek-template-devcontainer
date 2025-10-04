@@ -6,26 +6,20 @@ set -o nounset
 set -o verbose
 set -o xtrace
 
-WORKSPACE_NAME="$(basename "${PWD}")"
+HERE=$(
+	CDPATH='' cd "$(dirname -- "$0")"
+	pwd
+)
 
-echo "
-WORKSPACE_NAME=${WORKSPACE_NAME}
-" \
-	>|./.devcontainer/.env
+HOOK_DIR="${HERE}/initialize"
+TASKS=$(ls "${HOOK_DIR}")
 
-CONTAINER_GIT_CONFIG="${PWD}/.gitignore.d/gitconfig"
-rm "${CONTAINER_GIT_CONFIG}"
+for TASK in ${TASKS}; do
+	echo "${TASK}: start"
 
-git config --list --global --includes | while read -r line; do
-	KEY=$(echo "${line}" | sed 's/=.*//')
+	# SC1090: Can't follow non-constant source: It's impossible to specify location.
+	# shellcheck disable=SC1090
+	. "${HOOK_DIR}/${TASK}"
 
-	if test "${KEY}" = 'include.path' ||
-		test "${KEY}" = 'gpg.ssh.program' ||
-		test "${KEY}" = 'gpg.ssh.allowedsignersfile'; then
-		continue
-	fi
-
-	VALUE=$(echo "${line}" | sed 's/^.*=//')
-	# shellcheck disable=SC2086
-	git config set -f "${CONTAINER_GIT_CONFIG}" "${KEY}" "${VALUE}"
+	echo "${TASK}: end"
 done

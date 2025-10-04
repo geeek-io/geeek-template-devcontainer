@@ -1,8 +1,8 @@
-# !!! using mise is recommended in general. !!!
+# This file lists extra DNF packages to install.
+# Using 'aqua' is generally recommended for managing tools.
 #
-# Add line separated package names
+# Add one package name per line.
 #
-# For example,
-#
+# Examples:
 # jq
 # unzip

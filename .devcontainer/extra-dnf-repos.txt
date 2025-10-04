@@ -1,9 +1,9 @@
-# !!! using mise is recommended in general. !!!
+# This file lists additional DNF repositories for COPR.
+# Using 'aqua' is generally recommended for managing tools.
 #
-# Add line separated <user>/<project>
-# See https://copr.fedorainfracloud.org/coprs/
+# Add repositories in the format <user>/<project>, one per line.
+# Discover more repositories at https://copr.fedorainfracloud.org/coprs/
 #
-# For example,
-#
+# Example repositories:
 # kwizart/rpmfusion-free-release-stable
 # rhcontainerbot/podman-next

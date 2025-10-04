@@ -6,29 +6,36 @@ set -o nounset
 set -o verbose
 set -o xtrace
 
+# SC2154: var is referenced but not assigned: DOCKER_HOST is defined in Dockerfile.
+# shellcheck disable=SC2154
+DOCKER_SOCK_PATH=$(echo "${DOCKER_HOST}" | sed 's/^unix:\/\///')
+
+sudo chown --recursive nonroot:nonroot \
+	"${DOCKER_SOCK_PATH}" \
+	~/.cache/ \
+	~/.local/share/aquaproj-aqua/ \
+	~/.npm/ \
+	~/.bun/
+
+quietee() {
+	sudo tee "$@" \
+		>/dev/null
+}
+
 HERE=$(
 	CDPATH='' cd "$(dirname -- "$0")"
 	pwd
 )
 
-HOOK_TYPE="${1}"
+HOOK_DIR="${HERE}/${1}"
+TASKS=$(ls "${HOOK_DIR}")
 
-source_task() {
+for TASK in ${TASKS}; do
+	echo "${TASK}: start"
+
+	# SC1090: Can't follow non-constant source: It's impossible to specify location.
 	# shellcheck disable=SC1090
-	. "${HERE}/${HOOK_TYPE}/${1}.sh"
-}
+	. "${HOOK_DIR}/${TASK}"
 
-symlink_force() {
-	sudo ln --symbolic --force "$@"
-}
-
-quietee() {
-	sudo tee "${1}"
-}
-
-echo "${1}: start"
-
-# shellcheck disable=SC1090
-. "${HERE}/${HOOK_TYPE}/main.sh"
-
-echo "${1}: end"
+	echo "${TASK}: end"
+done

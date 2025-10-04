@@ -9,6 +9,3 @@ packages:
 
   - name: hadolint/hadolint
     version: v2.14.0
-
-  - name: goodwithtech/dockle
-    version: v0.4.15

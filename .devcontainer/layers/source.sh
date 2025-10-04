@@ -18,6 +18,7 @@ xdnf() {
 
 echo "${1}: start"
 
+# SC1090: Can't follow non-constant source: It's impossible to specify location.
 # shellcheck disable=SC1090
 . "/layers/${1}.sh"
 

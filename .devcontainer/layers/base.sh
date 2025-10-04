@@ -1,15 +1,12 @@
 xdnf upgrade
 xdnf autoremove
 
-xdnf install \
-	git
+xdnf install git
 
-useradd \
-	--create-home \
-	--user-group \
+useradd --create-home --user-group \
 	--groups wheel \
 	nonroot
 
-echo '
-%wheel	ALL=(ALL)	NOPASSWD: ALL
-' >/etc/sudoers.d/wheel-nopasswd
+echo "\
+%wheel	ALL=(ALL)	NOPASSWD: ALL\
+" >/etc/sudoers.d/wheel-nopasswd

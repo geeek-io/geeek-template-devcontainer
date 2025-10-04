@@ -15,7 +15,7 @@
 	"evenBetterToml.semanticTokens": true,
 	"evenBetterToml.taplo.bundled": false,
 	"files.associations": {
-		"*.env": "shellscript"
+		"*.env": "properties"
 	},
 	"geminicodeassist.agentYoloMode": true,
 	"geminicodeassist.enableTelemetry": false,

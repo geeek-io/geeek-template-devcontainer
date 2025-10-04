@@ -1,5 +1,7 @@
 FROM docker.io/library/fedora:42
 
+# General-purpose environment variables.
+# They should be independent of the mounted workspace and tools installed via postStart hooks.
 ENV \
 	DO_NOT_TRACK='1' \
 	NO_BROWSER='1' \
@@ -10,46 +12,55 @@ ENV \
 
 COPY ./.devcontainer/layers /layers
 
+# Use a wrapper script as the shell for subsequent RUN instructions.
+# It sets a strict environment, provides helper functions,
+# and executes the target script from the /layers directory.
 SHELL ["/layers/source.sh"]
 
 RUN \
-	--mount=type=cache,target=/var/cache/dnf/ \
+	--mount=type=cache,target=/var/cache/dnf \
 	base
 
 RUN \
-	--mount=type=cache,target=/var/cache/dnf/ \
+	--mount=type=cache,target=/var/cache/dnf \
 	--mount=type=bind,source=./.devcontainer/extra-dnf-repos.txt,destination=/extra-dnf-repos.txt \
 	--mount=type=bind,source=./.devcontainer/extra-dnf-packages.txt,destination=/extra-dnf-packages.txt \
 	dnf-extra
 
+# To add more build steps, follow these instructions:
+# 1. Create a new script file `<workspace-root>/.devcontainer/layers/<script-name>.sh`.
+# 2. Add a `RUN <script-name>` instruction below, or after `USER nonroot`.
+
+# Use a nonroot user, which is created in `<workspace-root>/.devcontainer/layers/base.sh`, to avoid running as root.
+# It can `sudo` without a password.
 USER nonroot
 
-WORKDIR /home/nonroot
-
+# Set the default shell for subsequent build steps (e.g., devcontainer features).
+# Enables verbose and xtrace options for easier debugging of those steps.
 SHELL ["/usr/bin/bash", "-c", \
 	"-o", "verbose", \
 	"-o", "xtrace"]
 
+# Wrap the entrypoint with bash and enable verbose/xtrace options.
+# This helps debug container startup issues by showing every command being executed.
 ENTRYPOINT ["/usr/bin/bash", "-c", \
 	"-o", "verbose", \
 	"-o", "xtrace"]
 
+# To keep the devcontainer running.
 CMD ["sleep infinity"]
 
+# Define build-time arguments for paths used in subsequent ENV instructions.
+# This simplifies the management of common paths within this Dockerfile.
 ARG \
 	HOME='/home/nonroot' \
-	WORKSPACE='/home/nonroot/workspace' \
-	WORKSPACE_NAME
+	WORKSPACE='/home/nonroot/workspace'
 
-# Most environment variables are configured in the Dockerfile
-# so they are reliably available during the build and within the resulting container,
-# no matter the method of its startup or the way processes are run inside it.
+# Environment variables are defined here to ensure they are available during the build process,
+# and for all processes within the running container, including those not launched via a shell.
+# To add or override variables, use the "<workspace-root>/var.env" file.
 ENV \
-	WORKSPACE_NAME="${WORKSPACE_NAME}" \
-	BAT_PAGER='ov --regexp-search --smart-case-sensitive --tab-width 2' \
-	PAGER="bat --tabs 0 --italic-text always --theme 'Visual Studio Dark+' --style full" \
-	GIT_PAGER='delta' \
-	EDITOR='edit' \
+	EDITOR='code -wait' \
 	VISUAL='code --wait' \
 	DOCKER_HOST="unix://${HOME}/docker.sock" \
 	SOPS_AGE_KEY_FILE="${WORKSPACE}/.gitignore.d/age.txt" \
