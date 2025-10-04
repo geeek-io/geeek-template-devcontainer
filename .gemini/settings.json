@@ -5,7 +5,7 @@
 			"args": [
 				"github"
 			],
-			"cwd": "${WORKSPACE_DIR}",
+			"cwd": "/home/nonroot/workspace",
 			"trust": true
 		},
 		"context7": {
@@ -13,7 +13,7 @@
 			"args": [
 				"context7"
 			],
-			"cwd": "${WORKSPACE_DIR}",
+			"cwd": "/home/nonroot/workspace",
 			"trust": true
 		},
 		"serena": {
@@ -21,7 +21,7 @@
 			"args": [
 				"serena"
 			],
-			"cwd": "${WORKSPACE_DIR}",
+			"cwd": "/home/nonroot/workspace",
 			"trust": true
 		}
 	}
