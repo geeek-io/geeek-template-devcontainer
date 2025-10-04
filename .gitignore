@@ -1,7 +1,7 @@
 # Repo
 
 **/.gitignore.d/*
-!**/.gitkeep
+!/.gitignore.d/README.md
 
 # ================================================================
 # macOS
@@ -642,8 +642,7 @@ http-client.private.env.json
 # ================================================================
 # Repo revert
 
+!.gitkeep
 !/.aqua/**
-!/var.env
-!/sec.env
-!/mcps/*/var.env
-!/mcps/*/sec.env
+!var.env
+!sec.env
