@@ -1,0 +1,10 @@
+%no-protection
+Key-Type: EDDSA
+Key-Curve: ed25519
+Key-Usage: cert,sign
+Subkey-Type: ECDH
+Subkey-Curve: cv25519
+Subkey-Usage: encrypt
+Expire-Date: 0
+Name-Real: tmp
+%commit

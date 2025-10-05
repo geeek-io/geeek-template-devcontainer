@@ -1,6 +1,5 @@
 mkdir --parents \
-	~/.config/fish/conf.d \
-	~/.config/fish/completions
+	~/.config/fish/conf.d
 
 ln --force --symbolic \
 	"${PWD}" ~/workspace

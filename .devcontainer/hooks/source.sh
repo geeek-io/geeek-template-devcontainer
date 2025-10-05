@@ -14,8 +14,12 @@ sudo chown --recursive nonroot:nonroot \
 	"${DOCKER_SOCK_PATH}" \
 	~/.cache/ \
 	~/.local/share/aquaproj-aqua/ \
+	~/.bun/ \
+	~/.cargo/ \
+	~/.gnupg/ \
 	~/.npm/ \
-	~/.bun/
+	~/.password-store/ \
+	|| true
 
 quietee() {
 	sudo tee "$@" \

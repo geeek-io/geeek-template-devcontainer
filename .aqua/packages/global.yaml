@@ -1,10 +1,11 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/main/json-schema/aqua-yaml.json
 
 packages:
+  - name: suzuki-shunsuke/ghtkn
+    version: v0.2.2
+
   - name: getsops/sops
     version: v3.11.0
-    tags:
-      - bootstrap
 
   - name: nodejs/node
     version: v24.9.0

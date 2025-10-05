@@ -4,7 +4,6 @@ FROM docker.io/library/fedora:42
 # They should be independent of the mounted workspace and tools installed via postStart hooks.
 ENV \
 	DO_NOT_TRACK='1' \
-	NO_BROWSER='1' \
 	TZ='Asia/Tokyo' \
 	LC_ALL='C.UTF-8' \
 	LANG='en_US.UTF-8' \
@@ -60,16 +59,15 @@ ARG \
 # and for all processes within the running container, including those not launched via a shell.
 # To add or override variables, use the "<workspace-root>/var.env" file.
 ENV \
-	EDITOR='code -wait' \
+	EDITOR='code --wait' \
 	VISUAL='code --wait' \
 	DOCKER_HOST="unix://${HOME}/docker.sock" \
 	SOPS_AGE_KEY_FILE="${WORKSPACE}/.gitignore.d/age.txt" \
 	GIT_CONFIG_GLOBAL="${WORKSPACE}/.gitignore.d/gitconfig" \
+	GHTKN_CONFIG="${WORKSPACE}/.ghtkn.yaml" \
 	AQUA_GLOBAL_CONFIG="${WORKSPACE}/.aqua/aqua.yaml" \
 	AQUA_CONFIG="${WORKSPACE}/.aqua/aqua.yaml" \
 	AQUA_DISABLE_LAZY_INSTALL='true' \
 	AQUA_VACUUM_DAYS='40' \
-	AQUA_CHECKSUM=true \
-	AQUA_REQUIRE_CHECKSUM=true \
-	AQUA_ENFORCE_CHECKSUM=true \
-	AQUA_ENFORCE_REQUIRE_CHECKSUM=true
+	AQUA_GHTKN_ENABLED=true \
+	AQUA_PROGRESS_BAR=true

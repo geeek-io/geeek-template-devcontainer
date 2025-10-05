@@ -1,5 +1,4 @@
-# Get the directory name and set it as the workspace name,
-# which will be used by the devcontainer.
+# Prepare environment variables for the build process of the devcontainer.
 
 WORKSPACE_NAME=$(basename "${PWD}")
 
