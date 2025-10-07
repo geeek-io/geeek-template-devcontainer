@@ -21,7 +21,7 @@ if ! test -f "${GH_TOKEN_FILE}"; then
 	echo "GH_TOKEN=${GH_TOKEN}" \
 		>~/workspace/.gitignore.d/gh-token.env
 
-	sops --encrypt --in-place ~/workspace/.gitignore.d/gh-token.env
+	sops encrypt --in-place ~/workspace/.gitignore.d/gh-token.env
 fi
 
 wrap_with_sops() {

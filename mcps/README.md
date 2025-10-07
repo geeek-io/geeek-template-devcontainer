@@ -68,7 +68,7 @@ Follow these steps to integrate a new MCP server:
     echo "MY_API_KEY=your-secret-key" > mcps/my-new-server/.sec.env
 
     # 2. Encrypt the file in-place
-    sops --encrypt --in-place mcps/my-new-server/.sec.env
+    sops encrypt --in-place mcps/my-new-server/.sec.env
     ```
     The `run.sh` script will automatically decrypt and load these secrets when the server is started.
 

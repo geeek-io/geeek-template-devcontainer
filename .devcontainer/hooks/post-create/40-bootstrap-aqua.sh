@@ -13,4 +13,4 @@ export AQUA_ENFORCE_REQUIRE_CHECKSUM=true
 
 echo "\
 aqua completion fish | source\
-" >~/.config/fish/conf.d/aqua.fish
+" >~/.config/fish/conf.d/40-aqua.fish
