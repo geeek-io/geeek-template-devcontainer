@@ -1,7 +1,7 @@
 {
 	"mcpServers": {
 		"github": {
-			"command": "./mcps/run.sh",
+			"command": "./ai/mcps/run.sh",
 			"args": [
 				"github"
 			],
@@ -9,7 +9,7 @@
 			"trust": true
 		},
 		"context7": {
-			"command": "./mcps/run.sh",
+			"command": "./ai/mcps/run.sh",
 			"args": [
 				"context7"
 			],
@@ -17,7 +17,7 @@
 			"trust": true
 		},
 		"serena": {
-			"command": "./mcps/run.sh",
+			"command": "./ai/mcps/run.sh",
 			"args": [
 				"serena"
 			],

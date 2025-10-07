@@ -14,7 +14,6 @@ concurrency:
 defaults:
   run:
     shell: bash
-    working-directory: ./scripts
 
 permissions:
   contents: read
@@ -34,14 +33,23 @@ jobs:
     runs-on: ubuntu-24.04-arm
 
     steps:
-      - id: shfmt
-        name: shfmt
-        run: >-
-          shfmt
-          --diff
-          --posix
-          --simplify
-          --binary-next-line
-          --case-indent
-          --space-redirects
-          .
+      - uses: actions/checkout@v5
+
+      - uses: actions/cache@v4.3.0
+        with:
+          path: ~/.local/share/aquaproj-aqua
+          key: aqua-v2-${{runner.os}}-${{runner.arch}}-${{hashFiles('./.aqua/aqua.yaml', './.aqua/packages/local.yaml')}}
+          restore-keys: |
+            aqua-v2-${{runner.os}}-${{runner.arch}}-
+
+      - uses: aquaproj/aqua-installer@v4.0.3
+        with:
+          aqua_version: v2.55.0
+          aqua_opts: >-
+            --only-link
+            --tags ci
+        env:
+          AQUA_ENFORCE_CHECKSUM: true
+          AQUA_ENFORCE_REQUIRE_CHECKSUM: true
+
+      - run: ./scripts/shfmt.sh --diff .

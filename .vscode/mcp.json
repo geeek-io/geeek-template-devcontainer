@@ -2,21 +2,21 @@
 	"servers": {
 		"github": {
 			"type": "stdio",
-			"command": "${workspaceFolder}/mcps/run.sh",
+			"command": "${workspaceFolder}/ai/mcps/run.sh",
 			"args": [
 				"github"
 			]
 		},
 		"context7": {
 			"type": "stdio",
-			"command": "${workspaceFolder}/mcps/run.sh",
+			"command": "${workspaceFolder}/ai/mcps/run.sh",
 			"args": [
 				"context7"
 			]
 		},
 		"serena": {
 			"type": "stdio",
-			"command": "${workspaceFolder}/mcps/run.sh",
+			"command": "${workspaceFolder}/ai/mcps/run.sh",
 			"args": [
 				"serena"
 			]

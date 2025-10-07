@@ -15,12 +15,12 @@ Based on our previous conversation, I have a strong grasp of the following conce
 
 2. **Repository-Specific MCP Architecture:**
 	* **Unified Interface:** The core design principle is to treat all MCP servers (both local and remote) uniformly. This is achieved by proxying remote servers locally, allowing all clients to interact with them via `type: "stdin"`.
-	* **Implementation Details:** The structure, mechanics, and instructions for adding new MCP servers are documented in `/home/nonroot/geeek-template-devcontainer/mcps/README.md`, which I helped create.
+	* **Implementation Details:** The structure, mechanics, and instructions for adding new MCP servers are documented in `~/workspace/ai/mcps/README.md`, which I helped create.
 
 3. **Client Configuration:**
 	*   This repository is client-agnostic, but provides default configurations for common clients.
-	*   **VSCode:** Configured via `/home/nonroot/geeek-template-devcontainer/.vscode/mcp.json`.
-	*   **Gemini CLI:** Configured via `/home/nonroot/geeek-template-devcontainer/.gemini/settings.json`.
+	*   **VSCode:** Configured via `~/workspace/.vscode/mcp.json`.
+	*   **Gemini CLI:** Configured via `~/workspace/.gemini/settings.json`.
 
 4. **Secrets and Environment Management:**
 	* **Secrets:** Sensitive information is stored in `.sec.env`, which is encrypted using `sops`. This ensures secure access for clients like GitHub Copilot, which operates on remote GitHub servers.

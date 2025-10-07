@@ -23,13 +23,7 @@
 	"github.copilot.chat.scopeSelection": true,
 	"github.copilot.nextEditSuggestions.enabled": true,
 	"shellcheck.run": "onSave",
-	"shfmt.executableArgs": [
-		"--posix",
-		"--simplify",
-		"--binary-next-line",
-		"--case-indent",
-		"--space-redirects"
-	],
+	"shfmt.executablePath": "./scripts/shfmt.sh",
 	"yaml.disableDefaultProperties": true,
 	"yaml.format.singleQuote": true,
 	"yaml.schemas": {

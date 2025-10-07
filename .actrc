@@ -1,0 +1,5 @@
+--rm
+--strict
+--use-new-action-cache
+--platform ubuntu-24.04-arm=ghcr.io/catthehacker/ubuntu:act-24.04
+--secret GH_TOKEN
