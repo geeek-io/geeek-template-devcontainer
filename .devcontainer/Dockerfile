@@ -1,5 +1,8 @@
 FROM docker.io/library/fedora:43
 
+ARG \
+	WORKSPACE_NAME
+
 # General-purpose environment variables.
 # They should be independent of the mounted workspace and tools installed via postStart hooks.
 ENV \
@@ -7,7 +10,8 @@ ENV \
 	TZ='Asia/Tokyo' \
 	LC_ALL='C.UTF-8' \
 	LANG='en_US.UTF-8' \
-	LANGUAGE='en_US.UTF-8'
+	LANGUAGE='en_US.UTF-8' \
+	WORKSPACE_NAME=${WORKSPACE_NAME}
 
 COPY ./.devcontainer/layers /layers
 
@@ -26,13 +30,19 @@ RUN \
 	--mount=type=bind,source=./.devcontainer/extra-dnf-packages.txt,destination=/extra-dnf-packages.txt \
 	dnf-extra
 
+RUN \
+	root-etc
+
 # To add more build steps, follow these instructions:
-# 1. Create a new script file `<workspace-root>/.devcontainer/layers/<script-name>.sh`.
+# 1. Create a new script file `.devcontainer/layers/<script-name>.sh`.
 # 2. Add a `RUN <script-name>` instruction below, or after `USER nonroot`.
 
-# Use a nonroot user, which is created in `<workspace-root>/.devcontainer/layers/base.sh`, to avoid running as root.
+# Use a nonroot user, which is created in `.devcontainer/layers/base.sh`, to avoid running as root.
 # It can `sudo` without a password.
 USER nonroot
+
+RUN \
+	nonroot-etc
 
 # Set the default shell for subsequent build steps (e.g., devcontainer features).
 # Enables verbose and xtrace options for easier debugging of those steps.
@@ -67,8 +77,7 @@ ENV \
 	GHTKN_CONFIG="${WORKSPACE}/.ghtkn.yaml" \
 	AQUA_GLOBAL_CONFIG="${WORKSPACE}/.aqua/aqua.yaml" \
 	AQUA_CONFIG="${WORKSPACE}/.aqua/aqua.yaml" \
-	AQUA_DISABLE_LAZY_INSTALL='true' \
-	AQUA_VACUUM_DAYS='40' \
+	AQUA_VACUUM_DAYS=40 \
 	AQUA_PROGRESS_BAR=true \
 	AQUA_ENFORCE_CHECKSUM=true \
 	AQUA_ENFORCE_REQUIRE_CHECKSUM=true

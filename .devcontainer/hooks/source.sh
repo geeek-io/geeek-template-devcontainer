@@ -18,7 +18,13 @@ sudo chown --recursive nonroot:nonroot \
 	~/.npm/ || true
 
 quietee() {
-	sudo tee "$@" \
+	STDOUT=$(cat -)
+	FILE="$1"
+	shift
+	DIR=$(dirname "${FILE}")
+	mkdir --parents "${DIR}"
+
+	echo "${STDOUT}" | sudo tee "$@" "${FILE}" \
 		>/dev/null
 }
 
@@ -27,7 +33,7 @@ HERE=$(
 	pwd
 )
 
-HOOK_DIR="${HERE}/${1}"
+HOOK_DIR="${HERE}/$1"
 TASKS=$(ls "${HOOK_DIR}")
 
 for TASK in ${TASKS}; do

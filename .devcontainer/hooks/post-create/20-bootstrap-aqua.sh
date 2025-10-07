@@ -1,4 +1,5 @@
-sudo rm --recursive --force /usr/local/bin/
+sudo unlink /usr/local/bin || true
+sudo rm --recursive --force /usr/local/bin
 
 sudo ln --symbolic \
 	"${HOME}/.local/share/aquaproj-aqua/bin" /usr/local/
@@ -13,4 +14,4 @@ export AQUA_ENFORCE_REQUIRE_CHECKSUM=true
 
 echo "\
 aqua completion fish | source\
-" >~/.config/fish/conf.d/40-aqua.fish
+" | quietee "${HOME}/.config/fish/conf.d/40-aqua.fish"

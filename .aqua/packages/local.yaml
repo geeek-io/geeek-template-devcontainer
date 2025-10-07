@@ -1,21 +1,24 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/main/json-schema/aqua-yaml.json
 
 packages:
-  - name: cli/cli
-    version: v2.81.0
-    tags:
-      - bootstrap
-
   - name: FiloSottile/age
     version: v1.2.1
     tags:
       - bootstrap
 
-  - name: docker/cli
-    version: v28.5.0
+  - name: cli/cli
+    version: v2.81.0
+    tags:
+      - bootstrap
 
   - name: fish-shell/fish-shell
     version: '4.1.1'
 
   - name: starship/starship
     version: v1.23.0
+
+  - name: docker/cli
+    version: v28.5.0
+
+  - name: nektos/act
+    version: v0.2.82

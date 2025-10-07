@@ -17,6 +17,8 @@ services:
       context: ..
       dockerfile: ./.devcontainer/Dockerfile
       pull: true
+      args:
+        WORKSPACE_NAME: ${WORKSPACE_NAME}
     volumes:
       - ..:/home/nonroot/${WORKSPACE_NAME}
       - dev-cache:/home/nonroot/.cache/

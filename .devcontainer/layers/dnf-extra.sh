@@ -1,11 +1,11 @@
-# Edit `<workspace-root>/.devcontainer/extra-dnf-{repos,packages}.txt`,
+# Edit `.devcontainer/extra-dnf-{repos,packages}.txt`,
 # to add any additional repositories or packages you need.
 
 remove_comment() {
 	sed \
 		-e 's/[[:blank:]]*#.*//' \
 		-e '/^$/d' \
-		"${1}"
+		"$1"
 }
 
 EXTRA_DNF_REPOS=$(remove_comment /extra-dnf-repos.txt)

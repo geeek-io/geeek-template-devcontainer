@@ -16,10 +16,10 @@ xdnf() {
 		"$@"
 }
 
-echo "${1}: start"
+echo "$1: start"
 
 # SC1090: Can't follow non-constant source: It's impossible to specify location.
 # shellcheck disable=SC1090
-. "/layers/${1}.sh"
+. "/layers/$1.sh"
 
-echo "${1}: end"
+echo "$1: end"

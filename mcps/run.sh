@@ -11,7 +11,7 @@ HERE=$(
 	pwd
 )
 
-MCP_NAME="${1}"
+MCP_NAME="$1"
 MCP_DIR="${HERE}/${MCP_NAME}"
 
 COMMAND=$(
