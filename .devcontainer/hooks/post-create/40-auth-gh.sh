@@ -5,7 +5,9 @@ GH_TOKEN_FILE=~/workspace/.gitignore.d/gh-token.env
 
 if ! test -f "${GH_TOKEN_FILE}"; then
 	gh_hard_logout() {
-		gh auth logout || true
+		gh auth logout \
+			|| true
+
 		rm --recursive --force ~/.cache/gh
 	}
 
@@ -18,7 +20,7 @@ if ! test -f "${GH_TOKEN_FILE}"; then
 	export GH_TOKEN
 
 	echo "GH_TOKEN=${GH_TOKEN}" \
-		>"${GH_TOKEN_FILE}"
+		> "${GH_TOKEN_FILE}"
 
 	sops encrypt --in-place "${GH_TOKEN_FILE}"
 fi
@@ -40,16 +42,21 @@ eval "${WRAPPED_SH_GH}"
 WRAPPED_SH_AQUA=$(wrapped_sh_function aqua)
 eval "${WRAPPED_SH_AQUA}"
 
-echo "${WRAPPED_SH_GH}" | quietee /etc/profile.d/40-alias-gh.sh
-echo "${WRAPPED_SH_AQUA}" | quietee /etc/profile.d/40-alias-aqua.sh
+echo "${WRAPPED_SH_GH}" \
+	| quietee /etc/profile.d/40-alias-gh.sh
+
+echo "${WRAPPED_SH_AQUA}" \
+	| quietee /etc/profile.d/40-alias-aqua.sh
 
 add_wrapped_fish_function() {
 	# SC2016: Expressions don't expand in single quotes: We want to keep $argv as is.
 	# shellcheck disable=SC2016
 	WRAPPED_FUNCTION=$(wrap_with_sops "$1" '$argv')
-	echo "function $1
+	echo "\
+function $1
 	${WRAPPED_FUNCTION}
-end" | quietee "${HOME}/.config/fish/functions/$1.fish"
+end\
+" | quietee "${HOME}/.config/fish/functions/$1.fish"
 }
 
 add_wrapped_fish_function gh

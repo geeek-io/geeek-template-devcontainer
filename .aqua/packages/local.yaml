@@ -20,5 +20,8 @@ packages:
   - name: docker/cli
     version: v28.5.0
 
+  - name: zizmorcore/zizmor
+    version: v1.14.2
+
   - name: nektos/act
     version: v0.2.82

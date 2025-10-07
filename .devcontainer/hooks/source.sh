@@ -15,7 +15,8 @@ sudo chown --recursive nonroot:nonroot \
 	~/.cache/ \
 	~/.local/share/aquaproj-aqua/ \
 	~/.bun/ \
-	~/.npm/ || true
+	~/.npm/ \
+	|| true
 
 quietee() {
 	STDOUT=$(cat -)
@@ -24,8 +25,9 @@ quietee() {
 	DIR=$(dirname "${FILE}")
 	mkdir --parents "${DIR}"
 
-	echo "${STDOUT}" | sudo tee "$@" "${FILE}" \
-		>/dev/null
+	echo "${STDOUT}" \
+		| sudo tee "$@" "${FILE}" \
+			> /dev/null
 }
 
 HERE=$(

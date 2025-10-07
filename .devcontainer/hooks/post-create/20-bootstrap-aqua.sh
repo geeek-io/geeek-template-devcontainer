@@ -1,4 +1,6 @@
-sudo unlink /usr/local/bin || true
+sudo unlink /usr/local/bin \
+	|| true
+
 sudo rm --recursive --force /usr/local/bin
 
 sudo ln --symbolic \

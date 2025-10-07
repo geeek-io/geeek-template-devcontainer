@@ -24,7 +24,7 @@ if ! test -f "${SOPS_AGE_KEY_FILE}"; then
 		export SOPS_AGE_RECIPIENTS
 
 		echo "SOPS_AGE_RECIPIENTS=${SOPS_AGE_RECIPIENTS}" \
-			>>~/workspace/.var.env
+			>> ~/workspace/.var.env
 	fi
 fi
 

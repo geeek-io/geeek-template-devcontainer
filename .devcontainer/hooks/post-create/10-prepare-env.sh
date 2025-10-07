@@ -15,7 +15,8 @@ eval \$(${GET_UNCOMMENTED_ENVS}\
 
 eval "${GET_ENVS_BASH}"
 
-echo "${GET_ENVS_BASH}" | quietee /etc/profile.d/20-env.sh
+echo "${GET_ENVS_BASH}" \
+	| quietee /etc/profile.d/20-env.sh
 
 echo "\
 ${GET_UNCOMMENTED_ENVS}\

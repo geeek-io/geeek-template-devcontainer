@@ -286,6 +286,31 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/zizmorcore/zizmor/v1.14.2/zizmor-aarch64-apple-darwin.tar.gz",
+      "checksum": "99A8CD468515183F373B2E30E0BCC1FB3434F882485ED449F820F0D2CA173FDD",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/zizmorcore/zizmor/v1.14.2/zizmor-aarch64-unknown-linux-gnu.tar.gz",
+      "checksum": "32731FF5B4CCC8F63EB0F1480847373670E817711FDA739FFCE656EAA98B1DFE",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/zizmorcore/zizmor/v1.14.2/zizmor-x86_64-apple-darwin.tar.gz",
+      "checksum": "4AB6AD0064C011FC6C38584F94DA9A14F6553A102318EA6800E143AE50323C6B",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/zizmorcore/zizmor/v1.14.2/zizmor-x86_64-pc-windows-msvc.zip",
+      "checksum": "34A2691445BE9E45B3262B4EFA2D5DFE6C7D7AADE96603FDC8290BAB191A74B5",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/zizmorcore/zizmor/v1.14.2/zizmor-x86_64-unknown-linux-gnu.tar.gz",
+      "checksum": "25CB9D5AC2AE533B2002ADE7B58E5757066082806A8BBEB6883104B84BA5FD86",
+      "algorithm": "sha256"
+    },
+    {
       "id": "http/download.docker.com/linux/static/stable/aarch64/docker-28.5.0.tgz",
       "checksum": "419A6CF482A8E500CFC84063AA947FAF1E35FA388ACAB57A3193FCC4E6F9503C",
       "algorithm": "sha256"

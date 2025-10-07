@@ -6,14 +6,17 @@
 				"docker.docker",
 				"editorconfig.editorconfig",
 				"exiasr.hadolint",
+				"github.vscode-github-actions",
 				"github.copilot",
 				"github.copilot-chat",
 				"google.geminicodeassist",
 				"mkhl.shfmt",
 				"ms-azuretools.vscode-containers",
 				"redhat.vscode-yaml",
+				"sanjulaganepola.github-local-actions",
 				"tamasfe.even-better-toml",
-				"timonwong.shellcheck"
+				"timonwong.shellcheck",
+				"zizmor.zizmor-vscode"
 			],
 			"settings": {
 				"terminal.integrated.defaultProfile.linux": "fish",

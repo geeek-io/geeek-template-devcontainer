@@ -1,0 +1,47 @@
+name: shfmt
+
+run-name: >-
+  ${{github.workflow}}
+  for ${{github.ref_name}}
+  by ${{github.triggering_actor}}
+  on ${{github.event_name}}
+  ${{github.run_attempt > 1 && format(' (attempt {0})', github.run_attempt)}}
+
+concurrency:
+  group: ${{github.workflow}}-${{github.ref}}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+    working-directory: ./scripts
+
+permissions:
+  contents: read
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+    paths:
+      - '**.sh'
+
+jobs:
+  shfmt:
+    name: shfmt
+    runs-on: ubuntu-24.04-arm
+
+    steps:
+      - id: shfmt
+        name: shfmt
+        run: >-
+          shfmt
+          --diff
+          --posix
+          --simplify
+          --binary-next-line
+          --case-indent
+          --space-redirects
+          .

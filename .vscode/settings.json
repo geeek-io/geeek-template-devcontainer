@@ -23,15 +23,19 @@
 	"github.copilot.chat.scopeSelection": true,
 	"github.copilot.nextEditSuggestions.enabled": true,
 	"shellcheck.run": "onSave",
+	"shfmt.executableArgs": [
+		"--posix",
+		"--simplify",
+		"--binary-next-line",
+		"--case-indent",
+		"--space-redirects"
+	],
 	"yaml.disableDefaultProperties": true,
-	"yaml.format.proseWrap": "always",
 	"yaml.format.singleQuote": true,
 	"yaml.schemas": {
 		"https://raw.githubusercontent.com/docker/vscode-extension/6a88caada42b57090df7ce91ec2a6561b422afe1/misc/empty.json": [
 			"compose*y*ml",
 			"docker-compose*y*ml"
 		]
-	},
-	"yaml.style.flowMapping": "forbid",
-	"yaml.style.flowSequence": "forbid"
+	}
 }
