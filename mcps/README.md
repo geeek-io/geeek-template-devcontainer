@@ -10,8 +10,8 @@ The core of this system is the `run.sh` script, which acts as a universal entry 
 
 The script performs the following steps:
 1.  Locates the corresponding server directory at `mcps/<server-name>`.
-2.  If `var.env` exists in the directory, it sources the file to load non-secret environment variables.
-3.  If `sec.env` exists, it uses `sops exec-env` to decrypt the file and inject secrets (like API keys) into the execution environment.
+2.  If `.var.env` exists in the directory, it sources the file to load non-secret environment variables.
+3.  If `.sec.env` exists, it uses `sops exec-env` to decrypt the file and inject secrets (like API keys) into the execution environment.
 4.  It reads, and executes the server start command defined in `command.sh` from the server's directory.
 
 This architecture allows clients to remain unaware of the server's implementation details. For example:
@@ -20,7 +20,7 @@ This architecture allows clients to remain unaware of the server's implementatio
 
 ### Configuration Overrides for Different Environments
 
-To accommodate environments like GitHub Copilot that run on remote servers, you can override settings using environment variables in `var.env`. Variables prefixed with `COPILOT_MCP_` are used for this purpose, allowing you to maintain different configurations for local and remote execution while sharing the same encrypted secrets (`sec.env`).
+To accommodate environments like GitHub Copilot that run on remote servers, you can override settings using environment variables in `.var.env`. Variables prefixed with `COPILOT_MCP_` are used for this purpose, allowing you to maintain different configurations for local and remote execution while sharing the same encrypted secrets (`.sec.env`).
 
 ## Adding a New MCP Server
 
@@ -50,9 +50,9 @@ Follow these steps to integrate a new MCP server:
       ```
 
 3.  **Add Configuration (Optional):**
-    If your server requires non-secret configuration (e.g., flags, contexts), create a `var.env` file. These variables can be used in your `command.sh`.
+    If your server requires non-secret configuration (e.g., flags, contexts), create a `.var.env` file. These variables can be used in your `command.sh`.
     ```sh
-    # mcps/my-new-server/var.env
+    # mcps/my-new-server/.var.env
     MY_SERVER_FLAG="--enable-feature-x"
     ```
     ```sh
@@ -62,13 +62,13 @@ Follow these steps to integrate a new MCP server:
     ```
 
 4.  **Add Secrets (Optional):**
-    If your server needs secrets (API keys, tokens), create a `sec.env` file. This file **must** be encrypted with `sops`.
+    If your server needs secrets (API keys, tokens), create a `.sec.env` file. This file **must** be encrypted with `sops`.
     ```sh
     # 1. Create the plaintext file
-    echo "MY_API_KEY=your-secret-key" > mcps/my-new-server/sec.env
+    echo "MY_API_KEY=your-secret-key" > mcps/my-new-server/.sec.env
 
     # 2. Encrypt the file in-place
-    sops --encrypt --in-place mcps/my-new-server/sec.env
+    sops --encrypt --in-place mcps/my-new-server/.sec.env
     ```
     The `run.sh` script will automatically decrypt and load these secrets when the server is started.
 

@@ -15,11 +15,7 @@ sudo chown --recursive nonroot:nonroot \
 	~/.cache/ \
 	~/.local/share/aquaproj-aqua/ \
 	~/.bun/ \
-	~/.cargo/ \
-	~/.gnupg/ \
-	~/.npm/ \
-	~/.password-store/ \
-	|| true
+	~/.npm/ || true
 
 quietee() {
 	sudo tee "$@" \

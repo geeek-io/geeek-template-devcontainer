@@ -1,0 +1,2 @@
+description = 'Respond with "pong" to test connectivity.'
+prompt = '@{~/workspace/ai/prompts/ping.md}'

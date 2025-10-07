@@ -1,8 +1,15 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/main/json-schema/aqua-yaml.json
 
 packages:
+  - name: cli/cli
+    version: v2.81.0
+    tags:
+      - bootstrap
+
   - name: FiloSottile/age
     version: v1.2.1
+    tags:
+      - bootstrap
 
   - name: docker/cli
     version: v28.5.0

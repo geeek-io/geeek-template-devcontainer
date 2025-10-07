@@ -2,10 +2,7 @@ xdnf upgrade
 xdnf autoremove
 
 xdnf install \
-	cargo \
-	dbus \
-	git \
-	pass
+	git
 
 useradd --create-home --user-group \
 	--groups wheel \

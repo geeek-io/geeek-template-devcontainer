@@ -644,5 +644,5 @@ http-client.private.env.json
 
 !.gitkeep
 !/.aqua/**
-!var.env
-!sec.env
+!.var.env
+!.sec.env

@@ -51,6 +51,36 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/cli/cli/v2.81.0/gh_2.81.0_linux_amd64.tar.gz",
+      "checksum": "D507C82E3AE47AF875B93472F39E01CBF9F85808EC0A69751E0932A43514D7FF",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/cli/cli/v2.81.0/gh_2.81.0_linux_arm64.tar.gz",
+      "checksum": "766ADDA9877AFAF55F67626FF5D956BCEA84F1E5371DF5765BA30B1E786A86FD",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/cli/cli/v2.81.0/gh_2.81.0_macOS_amd64.zip",
+      "checksum": "C93BC9ADBAF768A2789B60360069BE8A623BEF94DF60AE5344F2B57AD8AE024F",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/cli/cli/v2.81.0/gh_2.81.0_macOS_arm64.zip",
+      "checksum": "B0F5A81601291123A25792859F7CA82229C1F1AE05B4B9F1A7E9E8BB63E649D5",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/cli/cli/v2.81.0/gh_2.81.0_windows_amd64.zip",
+      "checksum": "8F5A19EE2271D20477C5C8D8204B65CD0FF6D73279417F5CDAB49135516CA1B5",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/cli/cli/v2.81.0/gh_2.81.0_windows_arm64.zip",
+      "checksum": "8C95E5C9EE4FB907A7E096EE7959EE0A66D1EB44AD27380AFEC7219DAE65175B",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/fish-shell/fish-shell/4.1.1/fish-4.1.1-linux-aarch64.tar.xz",
       "checksum": "038F63005608B6769451CF73B4423C01972C0A768809E988538F84055DEB5C1F",
       "algorithm": "sha256"
@@ -223,36 +253,6 @@
     {
       "id": "github_release/github.com/starship/starship/v1.23.0/starship-x86_64-unknown-linux-musl.tar.gz",
       "checksum": "8D06D2CC67AEDD6316FF58AB679FB80CDED0D85DE1DCD5727DF0633D35356D57",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/suzuki-shunsuke/ghtkn/v0.2.2/ghtkn_darwin_amd64.tar.gz",
-      "checksum": "25D0BB692DA0354338FA7CF136382EBC453C92CA9F60606AB85502BE55DC1BA1",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/suzuki-shunsuke/ghtkn/v0.2.2/ghtkn_darwin_arm64.tar.gz",
-      "checksum": "7F8B535522F4BEECA9E94A1C670568B8F0DE5C62286615540A857E5F5CDB0275",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/suzuki-shunsuke/ghtkn/v0.2.2/ghtkn_linux_amd64.tar.gz",
-      "checksum": "2C24F5BEAB7F52D8C2D965942C4F170E9D0EDA86C0041887BBC9D631ED85B1FF",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/suzuki-shunsuke/ghtkn/v0.2.2/ghtkn_linux_arm64.tar.gz",
-      "checksum": "D361CA358EB40B7D6C85798DEEFF83EE2B6C6176EC204267E30AFC8690C77091",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/suzuki-shunsuke/ghtkn/v0.2.2/ghtkn_windows_amd64.zip",
-      "checksum": "913AD8AF786AFFD19DE81EF9452C8B2081DFE1CCC05166C695AE5C36813A1531",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/suzuki-shunsuke/ghtkn/v0.2.2/ghtkn_windows_arm64.zip",
-      "checksum": "9497BD2A1CE4D3560C695A9A3451D67C35E87B4BE37703E6E9DA8E294D7A9323",
       "algorithm": "sha256"
     },
     {

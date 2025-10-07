@@ -22,7 +22,6 @@ services:
       - dev-cache:/home/nonroot/.cache/
       - aqua:/home/nonroot/.local/share/aquaproj-aqua/
       - bun:/home/nonroot/.bun/
-      - cargo:/home/nonroot/.cargo/
       - npm:/home/nonroot/.npm/
       # For OrbStack
       - ~/.orbstack/run/docker.sock:/home/nonroot/docker.sock
@@ -35,11 +34,5 @@ volumes:
     name: aqua
   bun:
     name: bun
-  cargo:
-    name: cargo
-  gnupg:
-    name: gnupg
   npm:
     name: npm
-  pass:
-    name: pass

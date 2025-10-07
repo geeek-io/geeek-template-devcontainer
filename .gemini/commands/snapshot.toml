@@ -1,0 +1,2 @@
+description = 'Create a "context snapshot" of our current session so you can quickly restore your understanding in the future.'
+prompt = '@{~/workspace/ai/prompts/snapshot.md}'

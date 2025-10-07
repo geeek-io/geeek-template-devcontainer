@@ -1,4 +1,4 @@
-FROM docker.io/library/fedora:42
+FROM docker.io/library/fedora:43
 
 # General-purpose environment variables.
 # They should be independent of the mounted workspace and tools installed via postStart hooks.
@@ -57,7 +57,7 @@ ARG \
 
 # Environment variables are defined here to ensure they are available during the build process,
 # and for all processes within the running container, including those not launched via a shell.
-# To add or override variables, use the "<workspace-root>/var.env" file.
+# To add or override variables, use the "<workspace-root>/.var.env" file.
 ENV \
 	EDITOR='code --wait' \
 	VISUAL='code --wait' \
@@ -69,5 +69,6 @@ ENV \
 	AQUA_CONFIG="${WORKSPACE}/.aqua/aqua.yaml" \
 	AQUA_DISABLE_LAZY_INSTALL='true' \
 	AQUA_VACUUM_DAYS='40' \
-	AQUA_GHTKN_ENABLED=true \
-	AQUA_PROGRESS_BAR=true
+	AQUA_PROGRESS_BAR=true \
+	AQUA_ENFORCE_CHECKSUM=true \
+	AQUA_ENFORCE_REQUIRE_CHECKSUM=true

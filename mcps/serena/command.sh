@@ -1,4 +1,4 @@
-# SC2154: var is referenced but not assigned: SERENA_MODE and SERENA_CONTEXT will be injected from `var.env`.
+# SC2154: var is referenced but not assigned: SERENA_MODE and SERENA_CONTEXT will be injected from `.var.env`.
 # shellcheck disable=SC2154
 
 SERENA_MODE_OPTIONS=$(
@@ -13,7 +13,7 @@ uvx \
 	--from git+https://github.com/oraios/serena \
 	serena \
 	start-mcp-server \
-	--project /home/nonroot/workspace \
+	--project ~/workspace \
 	--context "${SERENA_CONTEXT}" \
 	${SERENA_MODE_OPTIONS} \
 	--enable-web-dashboard no \
