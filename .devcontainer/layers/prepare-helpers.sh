@@ -9,6 +9,7 @@ SCRIPTS=$(ls "${DIR}"/*.sh)
 
 for SCRIPT in ${SCRIPTS}; do
 	if test -f "${SCRIPT}"; then
+		chmod a+x "${SCRIPT}"
 		NAME=$(basename "${SCRIPT}" .sh)
 		mv "${SCRIPT}" "${DIR}/${NAME}"
 	fi

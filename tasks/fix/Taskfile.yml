@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: 3
+
+tasks:
+  shfmt:
+    desc: Format shell scripts
+    summary: |-
+      Format all shell scripts in the repository using shfmt.
+    cmd: shfmt --write .
+
+  shellcheck:
+    desc: Auto-fix shell scripts
+    summary: |-
+      Auto-fix all shell scripts in the repository using shellcheck.
+    cmd: shfmt --find . | xargs shellcheck --format=diff | git apply --allow-empty

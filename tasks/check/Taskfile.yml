@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: 3
+
+tasks:
+  shfmt:
+    desc: Check shell script formatting
+    summary: |-
+      Check all shell scripts formatting in the repository using shfmt.
+    cmd: shfmt --diff .
+
+  shellcheck:
+    desc: Lint shell scripts
+    summary: |-
+      Lint all shell scripts in the repository using shellcheck.
+    cmd: shfmt --find . | xargs shellcheck
+
+  hadolint:
+    cmd: find \( -name '*Dockerfile*' -or -name '*Containerfile*' \) -and -type f | xargs hadolint

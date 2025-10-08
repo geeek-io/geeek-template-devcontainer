@@ -15,12 +15,10 @@ run
 
 if test "${STATUS}" != '0'; then
 	echo
-	set-color red
-	echo "################################################################"
-	echo "⚠️ The script '$*' failed." > /dev/stderr
-	echo "Press enter to run it again with verbose trace, or Ctrl+C to quit."
-	echo "################################################################"
-	set-color
+	print-colored red "################################################################"
+	print-colored red "⚠️ The script '$*' failed." > /dev/stderr
+	print-colored red "Press enter to run it again with verbose trace, or Ctrl+C to quit."
+	print-colored red "################################################################"
 	read -r _
 
 	OPTIONS="${OPTIONS} -o verbose -o xtrace"

@@ -43,8 +43,8 @@
 		"${containerWorkspaceFolder}/.devcontainer/hooks/post-create"
 	],
 	"postStartCommand": [
-		"run-dir",
-		"${containerWorkspaceFolder}/.devcontainer/hooks/post-start"
+		"task",
+		"hook:post-start"
 	],
 	"service": "dev",
 	"workspaceFolder": "/home/nonroot/${localWorkspaceFolderBasename}"

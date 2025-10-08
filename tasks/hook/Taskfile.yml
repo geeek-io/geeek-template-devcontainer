@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: 3
+
+tasks:
+  post-create:
+    desc: The hook runs after the container is created
+    summary: |-
+      The hook runs after the container is created.
+      It installs necessary tools and sets up the environment.
+    cmd: run-dir scripts/hooks/post-create
+
+  post-start:
+    desc: The hook runs after the container is started
+    summary: |-
+      The hook runs after the container is started.
+      It installs necessary tools and sets up the environment.
+    cmd: run-dir scripts/hooks/post-start
