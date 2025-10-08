@@ -126,6 +126,36 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/go-task/task/v3.45.4/task_darwin_amd64.tar.gz",
+      "checksum": "6F17B62CF938AB93162B1E59ECB5D1CD046F364BD3609FF4C6FB9E05E86C336E",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/go-task/task/v3.45.4/task_darwin_arm64.tar.gz",
+      "checksum": "14AE69F7F161532EA1E187A176DE9C963B4431B1B6A60A7FDAA40C1EA8B64B26",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/go-task/task/v3.45.4/task_linux_amd64.tar.gz",
+      "checksum": "4367EBA04ABCBCB407578D18D2439EE32604A872419601ABEC76A829C797FB82",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/go-task/task/v3.45.4/task_linux_arm64.tar.gz",
+      "checksum": "61D773D7A81AF2283079E640F14E8AA52A4E793460733A0DA37228A283F4CE00",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/go-task/task/v3.45.4/task_windows_amd64.zip",
+      "checksum": "543B70C6CC663F355892F4CC7072BB1C5460BA62DBE95AA0FD4AEB180E4271E1",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/go-task/task/v3.45.4/task_windows_arm64.zip",
+      "checksum": "FFAFC7ADFE2354858EBF24B9FB7622418B235863D5E7574328323474A0C48234",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/hadolint/hadolint/v2.14.0/hadolint-linux-arm64",
       "checksum": "331F1D3511B84A4F1E3D18D52FEC284723E4019552F4F47B19322A53CE9A40ED",
       "algorithm": "sha256"

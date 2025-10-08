@@ -13,36 +13,35 @@ ENV \
 	LANGUAGE='en_US.UTF-8' \
 	WORKSPACE_NAME=${WORKSPACE_NAME}
 
-COPY ./.devcontainer/layers /layers
+COPY --chmod=555 ./.devcontainer/helpers/* /usr/bin/
 
-# Use a wrapper script as the shell for subsequent RUN instructions.
-# It sets a strict environment, provides helper functions,
-# and executes the target script from the /layers directory.
-SHELL ["/layers/source.sh"]
+RUN \
+	--mount=type=bind,source=./.devcontainer/layers/prepare-helpers.sh,destination=/layer.sh \
+	/layer.sh
+
+# Use a wrapper script, which sets strict environment,
+# as the shell for subsequent RUN instructions.
+SHELL ["/usr/bin/xbash"]
 
 RUN \
 	--mount=type=cache,target=/var/cache/dnf \
-	base
+	--mount=type=bind,source=./.devcontainer/layers/base.sh,destination=/layer.sh \
+	/layer.sh
 
 RUN \
 	--mount=type=cache,target=/var/cache/dnf \
+	--mount=type=bind,source=./.devcontainer/layers/dnf-extra.sh,destination=/layer.sh \
 	--mount=type=bind,source=./.devcontainer/extra-dnf-repos.txt,destination=/extra-dnf-repos.txt \
 	--mount=type=bind,source=./.devcontainer/extra-dnf-packages.txt,destination=/extra-dnf-packages.txt \
-	dnf-extra
-
-RUN \
-	root-etc
-
-# To add more build steps, follow these instructions:
-# 1. Create a new script file `.devcontainer/layers/<script-name>.sh`.
-# 2. Add a `RUN <script-name>` instruction below, or after `USER nonroot`.
+	/layer.sh
 
 # Use a nonroot user, which is created in `.devcontainer/layers/base.sh`, to avoid running as root.
 # It can `sudo` without a password.
 USER nonroot
 
 RUN \
-	nonroot-etc
+	--mount=type=bind,source=./.devcontainer/layers/nonroot-etc.sh,destination=/layer.sh \
+	/layer.sh
 
 # Set the default shell for subsequent build steps (e.g., devcontainer features).
 # Enables verbose and xtrace options for easier debugging of those steps.

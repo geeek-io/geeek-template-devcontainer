@@ -1,5 +1,5 @@
 # Copy the global git config to the container,
-# with incompatible settings removed.
+# with incompatible settings removed/replaced.
 
 CONTAINER_GIT_CONFIG="${PWD}/.gitignore.d/gitconfig"
 rm "${CONTAINER_GIT_CONFIG}"

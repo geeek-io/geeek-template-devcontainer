@@ -45,19 +45,19 @@ WRAPPED_SH_GH=$(wrapped_sh_function gh)
 eval "${WRAPPED_SH_GH}"
 
 echo "${WRAPPED_SH_GH}" \
-	| quietee /etc/profile.d/40-alias-gh.sh
+	| sudo quietee /etc/profile.d/40-alias-gh.sh
 
 WRAPPED_SH_AQUA=$(wrapped_sh_function aqua)
 eval "${WRAPPED_SH_AQUA}"
 
 echo "${WRAPPED_SH_AQUA}" \
-	| quietee /etc/profile.d/40-alias-aqua.sh
+	| sudo quietee /etc/profile.d/40-alias-aqua.sh
 
 WRAPPED_SH_ACT=$(wrapped_sh_function act)
 eval "${WRAPPED_SH_ACT}"
 
 echo "${WRAPPED_SH_ACT}" \
-	| quietee /etc/profile.d/40-alias-act.sh
+	| sudo quietee /etc/profile.d/40-alias-act.sh
 
 add_wrapped_fish_function() {
 	# SC2016: Expressions don't expand in single quotes: We want to keep $argv as is.

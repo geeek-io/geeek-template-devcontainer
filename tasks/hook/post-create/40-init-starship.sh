@@ -1,6 +1,8 @@
+#!/usr/bin/xbash
+
 echo "\
 starship init fish | source\
-" | quietee "${HOME}/.config/fish/conf.d/90-starship.fish"
+" | quietee ~/.config/fish/conf.d/starship.fish
 
 starship \
 	preset no-nerd-font \

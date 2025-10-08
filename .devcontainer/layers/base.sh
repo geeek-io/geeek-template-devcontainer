@@ -10,4 +10,4 @@ useradd --create-home --user-group \
 
 echo "\
 %wheel	ALL=(ALL)	NOPASSWD: ALL\
-" > /etc/sudoers.d/wheel-nopasswd
+" | quietee /etc/sudoers.d/wheel-nopasswd

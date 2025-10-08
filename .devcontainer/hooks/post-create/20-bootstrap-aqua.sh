@@ -16,4 +16,4 @@ export AQUA_ENFORCE_REQUIRE_CHECKSUM=true
 
 echo "\
 aqua completion fish | source\
-" | quietee "${HOME}/.config/fish/conf.d/40-aqua.fish"
+" | quietee ~/.config/fish/conf.d/40-aqua.fish

@@ -17,7 +17,7 @@ done
 EXTRA_DNF_PACKAGES=$(remove_comment /extra-dnf-packages.txt)
 
 if test -n "${EXTRA_DNF_PACKAGES}"; then
-	# SC2086: Double quote to prevent globbing and word splitting: We are splitting intentionally here.
+	# SC2086: Double quote to prevent globbing and word splitting: We want to split package names.
 	# shellcheck disable=SC2086
 	xdnf install ${EXTRA_DNF_PACKAGES}
 fi

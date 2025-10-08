@@ -6,20 +6,11 @@ set -o nounset
 set -o verbose
 set -o xtrace
 
-HERE=$(
-	CDPATH='' cd "$(dirname -- "$0")"
-	pwd
-)
+DIR='.devcontainer/hooks/initialize'
+SCRIPTS=$(ls "${DIR}")
 
-HOOK_DIR="${HERE}/initialize"
-TASKS=$(ls "${HOOK_DIR}")
-
-for TASK in ${TASKS}; do
-	echo "${TASK}: start"
-
-	# SC1090: Can't follow non-constant source: It's impossible to specify location.
+for SCRIPT in ${SCRIPTS}; do
+	# SC1090: Can't follow non-constant source: We can't follow this because it's dynamic.
 	# shellcheck disable=SC1090
-	. "${HOOK_DIR}/${TASK}"
-
-	echo "${TASK}: end"
+	. "${DIR}/${SCRIPT}"
 done

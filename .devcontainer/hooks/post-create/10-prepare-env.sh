@@ -16,7 +16,7 @@ eval \$(${GET_UNCOMMENTED_ENVS}\
 eval "${GET_ENVS_BASH}"
 
 echo "${GET_ENVS_BASH}" \
-	| quietee /etc/profile.d/20-env.sh
+	| sudo quietee /etc/profile.d/20-env.sh
 
 echo "\
 ${GET_UNCOMMENTED_ENVS}\
@@ -24,4 +24,4 @@ ${GET_UNCOMMENTED_ENVS}\
  -e 's/=/ /'\
  -e 's/^/set --global --export /'\
  | source\
-" | quietee "${HOME}/.config/fish/conf.d/20-env.fish"
+" | quietee ~/.config/fish/conf.d/20-env.fish

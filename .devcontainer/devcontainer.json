@@ -39,12 +39,12 @@
 	],
 	"name": "${localWorkspaceFolderBasename}",
 	"postCreateCommand": [
-		"${containerWorkspaceFolder}/.devcontainer/hooks/source.sh",
-		"post-create"
+		"run-dir",
+		"${containerWorkspaceFolder}/.devcontainer/hooks/post-create"
 	],
 	"postStartCommand": [
-		"${containerWorkspaceFolder}/.devcontainer/hooks/source.sh",
-		"post-start"
+		"run-dir",
+		"${containerWorkspaceFolder}/.devcontainer/hooks/post-start"
 	],
 	"service": "dev",
 	"workspaceFolder": "/home/nonroot/${localWorkspaceFolderBasename}"

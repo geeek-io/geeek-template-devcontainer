@@ -1,6 +1,11 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/main/json-schema/aqua-yaml.json
 
 packages:
+  - name: go-task/task
+    version: v3.45.4
+    tags:
+      - bootstrap
+
   - name: mvdan/sh
     version: v3.12.0
 
