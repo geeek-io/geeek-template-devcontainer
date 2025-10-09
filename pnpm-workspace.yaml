@@ -1,0 +1,27 @@
+storeDir: ~/.local/share/pnpm/store
+
+catalogMode: strict
+
+cleanupUnusedCatalogs: true
+
+engineStrict: true
+
+hoist: false
+
+hoistWorkspacePackages: false
+
+includeWorkspaceRoot: true
+
+minimumReleaseAge: 1440
+
+packageManagerStrictVersion: true
+
+savePrefix: ''
+
+shellEmulator: true
+
+strictDepBuilds: true
+
+strictPeerDependencies: true
+
+verifyDepsBeforeRun: prompt

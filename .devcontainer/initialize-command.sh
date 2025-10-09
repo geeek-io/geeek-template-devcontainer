@@ -6,7 +6,7 @@ set -o nounset
 set -o verbose
 set -o xtrace
 
-DIR='.devcontainer/hooks/initialize'
+DIR='.devcontainer/initialize-hooks'
 SCRIPTS=$(ls "${DIR}")
 
 for SCRIPT in ${SCRIPTS}; do

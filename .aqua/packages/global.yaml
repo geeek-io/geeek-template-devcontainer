@@ -9,8 +9,5 @@ packages:
   - name: nodejs/node
     version: v24.9.0
 
-  - name: oven-sh/bun
-    version: bun-v1.2.23
-
   - name: astral-sh/uv
     version: '0.8.22'

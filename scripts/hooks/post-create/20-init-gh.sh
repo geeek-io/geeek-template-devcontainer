@@ -10,14 +10,8 @@ if ! test -f "${GH_TOKEN_FILE}"; then
 
 	gh_hard_logout
 
-	set +o xtrace
-	set +o verbose
-
 	echo '⚠️ GitHub authentication required.'
 	gh auth login --insecure-storage --skip-ssh-key --web --git-protocol https
-
-	set -o xtrace
-	set -o verbose
 
 	_GH_TOKEN=$(gh auth token)
 	gh_hard_logout

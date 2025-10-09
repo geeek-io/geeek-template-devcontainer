@@ -28,12 +28,12 @@ RUN \
 	--mount=type=bind,source=./.devcontainer/layers/base.sh,destination=/layer.sh \
 	/layer.sh
 
-RUN \
-	--mount=type=cache,target=/var/cache/dnf \
-	--mount=type=bind,source=./.devcontainer/layers/dnf-extra.sh,destination=/layer.sh \
-	--mount=type=bind,source=./.devcontainer/extra-dnf-repos.txt,destination=/extra-dnf-repos.txt \
-	--mount=type=bind,source=./.devcontainer/extra-dnf-packages.txt,destination=/extra-dnf-packages.txt \
-	/layer.sh
+# RUN \
+# 	--mount=type=cache,target=/var/cache/dnf \
+# 	--mount=type=bind,source=./.devcontainer/layers/dnf-extra.sh,destination=/layer.sh \
+# 	--mount=type=bind,source=./.devcontainer/extra-dnf-repos.txt,destination=/extra-dnf-repos.txt \
+# 	--mount=type=bind,source=./.devcontainer/extra-dnf-packages.txt,destination=/extra-dnf-packages.txt \
+# 	/layer.sh
 
 # Use a nonroot user, which is created in `.devcontainer/layers/base.sh`, to avoid running as root.
 # It can `sudo` without a password.
@@ -73,10 +73,10 @@ ENV \
 	DOCKER_HOST="unix://${HOME}/docker.sock" \
 	SOPS_AGE_KEY_FILE="${WORKSPACE}/.gitignore.d/age.txt" \
 	GIT_CONFIG_GLOBAL="${WORKSPACE}/.gitignore.d/gitconfig" \
-	GHTKN_CONFIG="${WORKSPACE}/.ghtkn.yaml" \
-	AQUA_GLOBAL_CONFIG="${WORKSPACE}/.aqua/aqua.yaml" \
-	AQUA_CONFIG="${WORKSPACE}/.aqua/aqua.yaml" \
-	AQUA_VACUUM_DAYS=40 \
 	AQUA_PROGRESS_BAR=true \
 	AQUA_ENFORCE_CHECKSUM=true \
-	AQUA_ENFORCE_REQUIRE_CHECKSUM=true
+	AQUA_ENFORCE_REQUIRE_CHECKSUM=true \
+	AQUA_VACUUM_DAYS=40 \
+	AQUA_GLOBAL_CONFIG="${WORKSPACE}/.aqua/aqua.yaml" \
+	AQUA_CONFIG="${WORKSPACE}/.aqua/aqua.yaml" \
+	NODE_COMPILE_CACHE=/home/nonroot/.node-compile-cache

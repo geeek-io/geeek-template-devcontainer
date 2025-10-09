@@ -2,6 +2,7 @@
 	"recommendations": [
 		"docker.docker",
 		"editorconfig.editorconfig",
+		"esbenp.prettier-vscode",
 		"exiasr.hadolint",
 		"github.vscode-github-actions",
 		"github.copilot",

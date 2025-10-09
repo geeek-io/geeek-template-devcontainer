@@ -16,4 +16,13 @@ tasks:
     cmd: shfmt --find . | xargs shellcheck
 
   hadolint:
+    desc: Lint Dockerfiles
+    summary: |-
+      Lint all Dockerfiles in the repository using hadolint.
     cmd: find \( -name '*Dockerfile*' -or -name '*Containerfile*' \) -and -type f | xargs hadolint
+
+  prettier:
+    desc: Check code formatting
+    summary: |-
+      Check all code formatting in the repository using prettier.
+    cmd: prettier --check .

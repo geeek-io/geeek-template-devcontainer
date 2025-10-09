@@ -21,11 +21,13 @@ tasks:
       - check:shfmt
       - check:shellcheck
       - check:hadolint
+      - check:prettier
 
   fix:
     cmds:
       - task: fix:shfmt
       - task: fix:shellcheck
+      - task: fix:prettier
 
   ci:
     cmds:

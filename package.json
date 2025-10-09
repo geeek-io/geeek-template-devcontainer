@@ -1,0 +1,62 @@
+{
+	"$schema": "https://www.schemastore.org/package.json",
+	"devDependencies": {
+		"@github/copilot": "0.0.336",
+		"@upstash/context7-mcp": "1.0.21",
+		"bun": "1.2.23",
+		"pnpm": "10.18.1",
+		"prettier": "3.6.2"
+	},
+	"devEngines": {
+		"os": {
+			"name": "linux",
+			"onFail": "error"
+		},
+		"packageManager": [
+			{
+				"name": "pnpm",
+				"onFail": "download",
+				"version": "10.18.1"
+			},
+			{
+				"name": "npm",
+				"onFail": "error",
+				"version": "11.6.0"
+			}
+		],
+		"runtime": [
+			{
+				"name": "node",
+				"onFail": "error",
+				"version": "24.9.0"
+			},
+			{
+				"name": "bun",
+				"onFail": "download",
+				"version": "1.2.23"
+			}
+		]
+	},
+	"engineStrict": true,
+	"license": "Apache-2.0",
+	"name": "@repo/root",
+	"onlyBuiltDependencies": [
+		"bun"
+	],
+	"packageManager": "pnpm@10.18.1",
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"@devm33/node-pty",
+			"bun",
+			"keytar-forked-forked",
+			"node-pty",
+			"protobufjs",
+			"sharp"
+		]
+	},
+	"private": true,
+	"type": "module",
+	"workspaces": [
+		"workspaces/*/*"
+	]
+}

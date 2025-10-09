@@ -23,8 +23,8 @@ services:
       - ..:/home/nonroot/${WORKSPACE_NAME}
       - dev-cache:/home/nonroot/.cache/
       - aqua:/home/nonroot/.local/share/aquaproj-aqua/
-      - bun:/home/nonroot/.bun/
-      - npm:/home/nonroot/.npm/
+      - pnpm:/home/nonroot/.local/share/pnpm/store/
+      - node-compile-cache:/home/nonroot/.node-compile-cache
       # For OrbStack
       - ~/.orbstack/run/docker.sock:/home/nonroot/docker.sock
       # For general Docker
@@ -34,7 +34,7 @@ volumes:
   dev-cache:
   aqua:
     name: aqua
-  bun:
-    name: bun
-  npm:
-    name: npm
+  pnpm:
+    name: pnpm
+  node-compile-cache:
+    name: node-compile-cache

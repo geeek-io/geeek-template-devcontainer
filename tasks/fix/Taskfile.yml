@@ -14,3 +14,9 @@ tasks:
     summary: |-
       Auto-fix all shell scripts in the repository using shellcheck.
     cmd: shfmt --find . | xargs shellcheck --format=diff | git apply --allow-empty
+
+  prettier:
+    desc: Format code
+    summary: |-
+      Format all code in the repository using prettier.
+    cmd: prettier --write .

@@ -17,6 +17,9 @@ packages:
   - name: starship/starship
     version: v1.23.0
 
+  - name: jqlang/jq
+    version: jq-1.8.1
+
   - name: docker/cli
     version: v28.5.0
 

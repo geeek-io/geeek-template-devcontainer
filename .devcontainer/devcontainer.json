@@ -5,6 +5,7 @@
 			"extensions": [
 				"docker.docker",
 				"editorconfig.editorconfig",
+				"esbenp.prettier-vscode",
 				"exiasr.hadolint",
 				"github.vscode-github-actions",
 				"github.copilot",
@@ -35,17 +36,19 @@
 		}
 	},
 	"initializeCommand": [
-		"./.devcontainer/hooks/initialize-command.sh"
+		"./.devcontainer/initialize-command.sh"
 	],
 	"name": "${localWorkspaceFolderBasename}",
 	"postCreateCommand": [
-		"run-dir",
-		"${containerWorkspaceFolder}/.devcontainer/hooks/post-create"
+		"./.devcontainer/post-create.sh"
 	],
 	"postStartCommand": [
 		"task",
 		"hook:post-start"
 	],
+	"remoteEnv": {
+		"PATH": "/home/nonroot/workspace/node_modules/.bin:${containerEnv:PATH}"
+	},
 	"service": "dev",
 	"workspaceFolder": "/home/nonroot/${localWorkspaceFolderBasename}"
 }
