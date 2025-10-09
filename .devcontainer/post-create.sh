@@ -16,22 +16,15 @@ sudo chown --recursive nonroot:nonroot \
 #================================================================
 
 #================================================================
-# Auto-loading `<workspace-root>/.var.env` into shell environments
+# Although `.var.env` is loaded in `.devcontainer/compose.yaml`,
+# we're exporting the variables to shells here,
+# so they can be updated without restarting the devcontainer.
 #----------------------------------------------------------------
-GET_UNCOMMENTED_ENVS="uncomment ${HOME}/workspace/.var.env"
-
-EXPORT_ENVS_BASH="\
-eval \$(${GET_UNCOMMENTED_ENVS}\
- | sed 's/^/export /')\
-"
-
-eval "${EXPORT_ENVS_BASH}"
-
-echo "${EXPORT_ENVS_BASH}" \
+echo "export-env ~/workspace/.var.env" \
 	| sudo quietee /etc/profile.d/0-env.sh
 
 echo "\
-${GET_UNCOMMENTED_ENVS}\
+uncomment ~/workspace/.var.env\
  | sed\
  -e 's/=/ /'\
  -e 's/^/set --global --export /'\
@@ -42,11 +35,6 @@ ${GET_UNCOMMENTED_ENVS}\
 #================================================================
 # Bootstrap Aqua
 #----------------------------------------------------------------
-sudo rm --recursive --force /usr/local/bin
-
-sudo ln --symbolic \
-	"${HOME}/.local/share/aquaproj-aqua/bin" /usr/local/
-
 unset AQUA_ENFORCE_CHECKSUM
 unset AQUA_ENFORCE_REQUIRE_CHECKSUM
 

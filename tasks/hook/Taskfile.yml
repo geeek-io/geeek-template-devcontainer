@@ -8,11 +8,15 @@ tasks:
     summary: |-
       The hook runs after the container is created.
       It installs necessary tools and sets up the environment.
-    cmd: run-dir scripts/hooks/post-create
+    cmds:
+      - run-dir scripts/hooks/post-create/vendor
+      - run-dir scripts/hooks/post-create/user
 
   post-start:
     desc: The hook runs after the container is started
     summary: |-
       The hook runs after the container is started.
       It installs necessary tools and sets up the environment.
-    cmd: run-dir scripts/hooks/post-start
+    cmds:
+      - run-dir scripts/hooks/post-start/vendor
+      - run-dir scripts/hooks/post-start/user

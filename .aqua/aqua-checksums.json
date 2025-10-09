@@ -286,6 +286,56 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/oven-sh/bun/bun-v1.2.23/bun-darwin-aarch64.zip",
+      "checksum": "22F5FA3FFF72B0D3B8E7E0F8051ECADF2E41920D474AC62DB5279144809C9005",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/oven-sh/bun/bun-v1.2.23/bun-darwin-x64.zip",
+      "checksum": "9729C400E50BC3C86B6640E42AF2FF5C057B5DF3B27C93B40ED47C16B5E6A5E6",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/oven-sh/bun/bun-v1.2.23/bun-linux-aarch64.zip",
+      "checksum": "6A7A98C546D084A845DEDA62EB2A5B94A6A14A63EA81CF9186D46BF55BF910A9",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/oven-sh/bun/bun-v1.2.23/bun-linux-x64.zip",
+      "checksum": "CF0ED0A920799D576FFDE4E0CAE66D732BF23C2530407F26F59C7831DFFE1F0E",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/oven-sh/bun/bun-v1.2.23/bun-windows-x64.zip",
+      "checksum": "2171E94F9D1E0CD6D45BDCED38E2DC821F4181A075ED80772E750B3298A9016D",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/pnpm/pnpm/v10.18.1/pnpm-linux-arm64",
+      "checksum": "A4E24D3B1171DCE6A7C35F7FC75E6CE20F4D9932318AC892D7508B19AF298D89",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/pnpm/pnpm/v10.18.1/pnpm-linux-x64",
+      "checksum": "6F8AE185EDFB0EF1ED4FD94F399B9B8A990EAB5636AAEAC9B0D3556CE0143E27",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/pnpm/pnpm/v10.18.1/pnpm-macos-arm64",
+      "checksum": "82EAB0623E8BFD29FDBB386DA51A17EDCBED666EAEE4125068B91DB922993853",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/pnpm/pnpm/v10.18.1/pnpm-macos-x64",
+      "checksum": "E296136C535695E1D0D44B8664E0374C96AA2407A857ED64E9B5B35CD77A83CE",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/pnpm/pnpm/v10.18.1/pnpm-win-x64.exe",
+      "checksum": "A30C43F4A48EA317A5A3ECF8486F27DE9E0CFDC2768D4870E23005A3254F3009",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/starship/starship/v1.23.0/starship-aarch64-apple-darwin.tar.gz",
       "checksum": "042C8001275316836A3C43FDB88D0787395EDFD0C10D209E4892AB5577B80D57",
       "algorithm": "sha256"

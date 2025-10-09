@@ -16,7 +16,7 @@ ENV \
 COPY --chmod=555 ./.devcontainer/helpers/* /usr/bin/
 
 RUN \
-	--mount=type=bind,source=./.devcontainer/layers/prepare-helpers.sh,destination=/layer.sh \
+	--mount=type=bind,source=./.devcontainer/layers/vendor/prepare-helpers.sh,destination=/layer.sh \
 	/layer.sh
 
 # Use a wrapper script, which sets strict environment,
@@ -25,23 +25,31 @@ SHELL ["/usr/bin/xbash"]
 
 RUN \
 	--mount=type=cache,target=/var/cache/dnf \
-	--mount=type=bind,source=./.devcontainer/layers/base.sh,destination=/layer.sh \
+	--mount=type=bind,source=./.devcontainer/layers/vendor/base.sh,destination=/layer.sh \
 	/layer.sh
 
 # RUN \
 # 	--mount=type=cache,target=/var/cache/dnf \
-# 	--mount=type=bind,source=./.devcontainer/layers/dnf-extra.sh,destination=/layer.sh \
+# 	--mount=type=bind,source=./.devcontainer/layers/vendor/dnf-extra.sh,destination=/layer.sh \
 # 	--mount=type=bind,source=./.devcontainer/extra-dnf-repos.txt,destination=/extra-dnf-repos.txt \
 # 	--mount=type=bind,source=./.devcontainer/extra-dnf-packages.txt,destination=/extra-dnf-packages.txt \
 # 	/layer.sh
 
+# RUN \
+# 	--mount=type=bind,source=./.devcontainer/layers/user/root.sh,destination=/layer.sh \
+# 	/layer.sh
+
 # Use a nonroot user, which is created in `.devcontainer/layers/base.sh`, to avoid running as root.
-# It can `sudo` without a password.
+# It can `sudo` without a password though.
 USER nonroot
 
 RUN \
-	--mount=type=bind,source=./.devcontainer/layers/nonroot-etc.sh,destination=/layer.sh \
+	--mount=type=bind,source=./.devcontainer/layers/vendor/non-root-etc.sh,destination=/layer.sh \
 	/layer.sh
+
+# RUN \
+# 	--mount=type=bind,source=./.devcontainer/layers/user/non-root.sh,destination=/layer.sh \
+# 	/layer.sh
 
 # Set the default shell for subsequent build steps (e.g., devcontainer features).
 # Enables verbose and xtrace options for easier debugging of those steps.

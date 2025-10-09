@@ -19,6 +19,8 @@ services:
       pull: true
       args:
         WORKSPACE_NAME: ${WORKSPACE_NAME}
+    env_file:
+      - ../.var.env
     volumes:
       - ..:${_HOME}/${WORKSPACE_NAME}
       - dev-cache:${_HOME}/.cache/

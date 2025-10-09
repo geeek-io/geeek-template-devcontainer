@@ -23,7 +23,7 @@
 				"terminal.integrated.defaultProfile.linux": "fish",
 				"terminal.integrated.profiles.linux": {
 					"fish": {
-						"path": "/usr/local/bin/fish"
+						"path": "/home/nonroot/.local/share/aquaproj-aqua/bin/fish"
 					}
 				}
 			}
@@ -40,7 +40,7 @@
 	"postCreateCommand": ["./.devcontainer/post-create.sh"],
 	"postStartCommand": ["task", "hook:post-start"],
 	"remoteEnv": {
-		"PATH": "/home/nonroot/workspace/node_modules/.bin:${containerEnv:PATH}"
+		"PATH": "/home/nonroot/workspace/node_modules/.bin:/home/nonroot/.local/share/aquaproj-aqua/bin:/home/nonroot/.local/bin:${containerEnv:PATH}"
 	},
 	"service": "dev",
 	"workspaceFolder": "/home/nonroot/${localWorkspaceFolderBasename}"
