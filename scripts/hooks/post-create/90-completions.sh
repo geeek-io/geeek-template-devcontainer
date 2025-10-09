@@ -17,5 +17,8 @@ task --completion fish \
 zizmor --completions fish \
 	| add_completion zizmor
 
+taplo completions fish \
+	| add_completion taplo
+
 curl https://raw.githubusercontent.com/oven-sh/bun/refs/heads/main/completions/bun.fish \
 	| add_completion bun

@@ -9,10 +9,7 @@ SERENA_MODE_OPTIONS=$(
 # SC2086: Double quote to prevent globbing and word splitting: We are splitting intentionally here.
 # SC2154: var is referenced but not assigned: SERENA_CONTEXT will be injected from `.var.env`.
 # shellcheck disable=SC2086,SC2154
-uvx \
-	--from git+https://github.com/oraios/serena \
-	serena \
-	start-mcp-server \
+uvx serena start-mcp-server \
 	--project ~/workspace \
 	--context "${SERENA_CONTEXT}" \
 	${SERENA_MODE_OPTIONS} \

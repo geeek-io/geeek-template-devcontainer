@@ -9,12 +9,14 @@ The core of this system is the `run.sh` script, which acts as a universal entry 
 `./run.sh <server-name>`
 
 The script performs the following steps:
+
 1.  Locates the corresponding server directory at `ai/mcps/<server-name>`.
 2.  If `.var.env` exists in the directory, it sources the file to load non-secret environment variables.
 3.  If `.sec.env` exists, it uses `sops exec-env` to decrypt the file and inject secrets (like API keys) into the execution environment.
 4.  It reads, and executes the server start command defined in `command.sh` from the server's directory.
 
 This architecture allows clients to remain unaware of the server's implementation details. For example:
+
 - A **local server** (e.g., `serena`) is started directly by its command in `command.sh`.
 - A **remote server** (e.g., `github`) is accessed via `uvx mcp-proxy`, which is configured in its `command.sh` to create a local `stdio` proxy to the remote endpoint.
 
@@ -28,14 +30,15 @@ Follow these steps to integrate a new MCP server:
 
 1.  **Create a Server Directory:**
     Create a new directory under `ai/mcps/` with a descriptive name for your server.
+
     ```sh
     mkdir ~/workspace/ai/mcps/my-new-server
     ```
 
 2.  **Define the Start Command:**
     Create a `command.sh` file inside the new directory. This file contains the shell command to start the MCP server.
-
     - **For a local server:**
+
       ```sh
       # ai/mcps/my-new-server/command.sh
       my-mcp-binary --port 8080
@@ -51,10 +54,12 @@ Follow these steps to integrate a new MCP server:
 
 3.  **Add Configuration (Optional):**
     If your server requires non-secret configuration (e.g., flags, contexts), create a `.var.env` file. These variables can be used in your `command.sh`.
+
     ```sh
     # ai/mcps/my-new-server/.var.env
     MY_SERVER_FLAG="--enable-feature-x"
     ```
+
     ```sh
     # ai/mcps/my-new-server/command.sh
     # shellcheck disable=SC2154
@@ -63,6 +68,7 @@ Follow these steps to integrate a new MCP server:
 
 4.  **Add Secrets (Optional):**
     If your server needs secrets (API keys, tokens), create a `.sec.env` file. This file **must** be encrypted with `sops`.
+
     ```sh
     # 1. Create the plaintext file
     echo "MY_API_KEY=your-secret-key" > ~/workspace/ai/mcps/my-new-server/.sec.env
@@ -70,6 +76,7 @@ Follow these steps to integrate a new MCP server:
     # 2. Encrypt the file in-place
     sops encrypt --in-place ~/workspace/ai/mcps/my-new-server/.sec.env
     ```
+
     The `run.sh` script will automatically decrypt and load these secrets when the server is started.
 
 ## Client Configuration Examples
@@ -82,14 +89,14 @@ Add the server definition to the `servers` array in `.vscode/mcp.json`:
 
 ```jsonc
 {
-  "servers": {
+	"servers": {
 		// ... other servers.
-    "my-new-server": {
-      "type": "stdio",
-      "command": "${workspaceFolder}/ai/mcps/run.sh",
-      "args": ["some-arg"]
-    }
-	}
+		"my-new-server": {
+			"type": "stdio",
+			"command": "${workspaceFolder}/ai/mcps/run.sh",
+			"args": ["some-arg"],
+		},
+	},
 }
 ```
 
@@ -99,14 +106,14 @@ Add the server definition to the `mcpServers` object in `.gemini/settings.json`:
 
 ```jsonc
 {
-  "mcpServers": {
+	"mcpServers": {
 		// ... other servers.
-    "my-new-server": {
-      "command": "./ai/mcps/run.sh",
-      "args": ["some-arg"],
-      "cwd": "/home/nonroot/workspace",
-      "trust": true // When `true`, bypasses all tool call confirmations for this server (default: `false`)
-    }
-  }
+		"my-new-server": {
+			"command": "./ai/mcps/run.sh",
+			"args": ["some-arg"],
+			"cwd": "/home/nonroot/workspace",
+			"trust": true, // When `true`, bypasses all tool call confirmations for this server (default: `false`)
+		},
+	},
 }
 ```

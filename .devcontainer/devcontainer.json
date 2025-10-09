@@ -35,17 +35,10 @@
 			"aqua_version": "v2.55.0"
 		}
 	},
-	"initializeCommand": [
-		"./.devcontainer/initialize-command.sh"
-	],
+	"initializeCommand": ["./.devcontainer/initialize-command.sh"],
 	"name": "${localWorkspaceFolderBasename}",
-	"postCreateCommand": [
-		"./.devcontainer/post-create.sh"
-	],
-	"postStartCommand": [
-		"task",
-		"hook:post-start"
-	],
+	"postCreateCommand": ["./.devcontainer/post-create.sh"],
+	"postStartCommand": ["task", "hook:post-start"],
 	"remoteEnv": {
 		"PATH": "/home/nonroot/workspace/node_modules/.bin:${containerEnv:PATH}"
 	},

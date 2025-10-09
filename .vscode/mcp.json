@@ -3,23 +3,17 @@
 		"github": {
 			"type": "stdio",
 			"command": "${workspaceFolder}/ai/mcps/run.sh",
-			"args": [
-				"github"
-			]
+			"args": ["github"]
 		},
 		"context7": {
 			"type": "stdio",
 			"command": "${workspaceFolder}/ai/mcps/run.sh",
-			"args": [
-				"context7"
-			]
+			"args": ["context7"]
 		},
 		"serena": {
 			"type": "stdio",
 			"command": "${workspaceFolder}/ai/mcps/run.sh",
-			"args": [
-				"serena"
-			]
+			"args": ["serena"]
 		}
 	}
 }

@@ -1,0 +1,2 @@
+mcp-server@0.9.0
+serena-agent@0.1.4

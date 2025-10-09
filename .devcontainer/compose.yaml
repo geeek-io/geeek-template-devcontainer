@@ -20,15 +20,16 @@ services:
       args:
         WORKSPACE_NAME: ${WORKSPACE_NAME}
     volumes:
-      - ..:/home/nonroot/${WORKSPACE_NAME}
-      - dev-cache:/home/nonroot/.cache/
-      - aqua:/home/nonroot/.local/share/aquaproj-aqua/
-      - pnpm:/home/nonroot/.local/share/pnpm/store/
-      - node-compile-cache:/home/nonroot/.node-compile-cache
+      - ..:${_HOME}/${WORKSPACE_NAME}
+      - dev-cache:${_HOME}/.cache/
+      - aqua:${_HOME}/.local/share/aquaproj-aqua/
+      - pnpm:${_HOME}/.local/share/pnpm/store/
+      - node-compile-cache:${_HOME}/.node-compile-cache/
+      - uv:${_HOME}/.local/share/uv/
       # For OrbStack
-      - ~/.orbstack/run/docker.sock:/home/nonroot/docker.sock
+      - ~/.orbstack/run/docker.sock:${_HOME}/docker.sock
       # For general Docker
-      # - /var/run/docker.sock:/home/nonroot/docker.sock
+      # - /var/run/docker.sock:${_HOME}/docker.sock
 
 volumes:
   dev-cache:
@@ -38,3 +39,5 @@ volumes:
     name: pnpm
   node-compile-cache:
     name: node-compile-cache
+  uv:
+    name: uv

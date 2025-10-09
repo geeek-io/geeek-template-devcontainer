@@ -3,5 +3,6 @@
 WORKSPACE_NAME=$(basename "${PWD}")
 
 echo "\
+_HOME=/home/nonroot
 WORKSPACE_NAME=${WORKSPACE_NAME}\
 " >| ./.devcontainer/.env

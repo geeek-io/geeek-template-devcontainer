@@ -19,4 +19,4 @@ tasks:
     desc: Format code
     summary: |-
       Format all code in the repository using prettier.
-    cmd: prettier --write .
+    cmd: prettier --log-level warn --write .

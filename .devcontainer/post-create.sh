@@ -18,12 +18,7 @@ sudo chown --recursive nonroot:nonroot \
 #================================================================
 # Auto-loading `<workspace-root>/.var.env` into shell environments
 #----------------------------------------------------------------
-GET_UNCOMMENTED_ENVS="\
-sed\
- -e 's/[[:blank:]]*#.*//'\
- -e '/^$/d'\
- ${HOME}/workspace/.var.env\
-"
+GET_UNCOMMENTED_ENVS="uncomment ${HOME}/workspace/.var.env"
 
 EXPORT_ENVS_BASH="\
 eval \$(${GET_UNCOMMENTED_ENVS}\

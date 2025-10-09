@@ -14,3 +14,6 @@ packages:
 
   - name: hadolint/hadolint
     version: v2.14.0
+
+  - name: tamasfe/taplo
+    version: '0.10.0'

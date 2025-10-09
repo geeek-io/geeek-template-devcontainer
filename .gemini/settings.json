@@ -2,25 +2,19 @@
 	"mcpServers": {
 		"github": {
 			"command": "./ai/mcps/run.sh",
-			"args": [
-				"github"
-			],
+			"args": ["github"],
 			"cwd": "/home/nonroot/workspace",
 			"trust": true
 		},
 		"context7": {
 			"command": "./ai/mcps/run.sh",
-			"args": [
-				"context7"
-			],
+			"args": ["context7"],
 			"cwd": "/home/nonroot/workspace",
 			"trust": true
 		},
 		"serena": {
 			"command": "./ai/mcps/run.sh",
-			"args": [
-				"serena"
-			],
+			"args": ["serena"],
 			"cwd": "/home/nonroot/workspace",
 			"trust": true
 		}

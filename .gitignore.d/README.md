@@ -22,6 +22,7 @@ Specifically, the relevant lines in the root `.gitignore` are:
 ```
 
 This configuration means:
+
 1.  Any file or folder placed inside a directory named `.gitignore.d` will be ignored by Git.
 2.  You can create a `.gitignore.d` directory anywhere in the repository to ignore local files specific to that location.
 3.  The exceptions `!.gitkeep` and `!/.gitignore.d/README.md` allow for committing otherwise empty directories and this documentation file.

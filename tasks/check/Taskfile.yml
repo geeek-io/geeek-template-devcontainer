@@ -25,4 +25,4 @@ tasks:
     desc: Check code formatting
     summary: |-
       Check all code formatting in the repository using prettier.
-    cmd: prettier --check .
+    cmd: prettier --log-level warn --check .
