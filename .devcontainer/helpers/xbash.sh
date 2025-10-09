@@ -11,18 +11,6 @@ run() {
 	STATUS=$?
 }
 
-if test -n "${XBASH_EXPORTED:-}"; then
-	export XBASH_EXPORTED=true
-	export-env ~/workspace/.var.env
-
-	export PATH="\
-/home/nonroot/workspace/node_modules/.bin\
-:/home/nonroot/.local/share/aquaproj-aqua/bin\
-:/home/nonroot/.local/bin\
-:${PATH}\
-"
-fi
-
 run
 
 if test "${STATUS}" != '0'; then

@@ -4,7 +4,7 @@ set -o nounset
 set -o verbose
 set -o xtrace
 
-DIR=/usr/bin
+DIR=/usr/local/bin
 SCRIPTS=$(ls "${DIR}"/*.sh)
 
 for SCRIPT in ${SCRIPTS}; do

@@ -81,6 +81,36 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/evilmartians/lefthook/v1.13.6/lefthook_1.13.6_Linux_arm64.gz",
+      "checksum": "1C18AD2BB8F9C2BE9C0A525BA69DDC3C4EB3B4B7E82969C5F1FB976C5261B91A",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/evilmartians/lefthook/v1.13.6/lefthook_1.13.6_Linux_x86_64.gz",
+      "checksum": "C2406F881FD0EE1DDC5E1400D809D7D02BA6C908BB0118139689D925691E884E",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/evilmartians/lefthook/v1.13.6/lefthook_1.13.6_MacOS_arm64.gz",
+      "checksum": "685488FD61AD19482627F3E0D84982E5BCF019298A3D20F93B371D5585A2327E",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/evilmartians/lefthook/v1.13.6/lefthook_1.13.6_MacOS_x86_64.gz",
+      "checksum": "71989DD1D3178B4FA179F3F7906CA135F102CE705B3D36F9B88AED6B976D192D",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/evilmartians/lefthook/v1.13.6/lefthook_1.13.6_Windows_arm64.gz",
+      "checksum": "165150F80B3DF9D662AD32F95BD7A6B08399DD98FE68DF42958C019A47D89644",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/evilmartians/lefthook/v1.13.6/lefthook_1.13.6_Windows_x86_64.gz",
+      "checksum": "F08BF0CBE0B1C35C79F8E0BAD59B283F7AA7F01E622AA02BBB7404C265694F39",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/fish-shell/fish-shell/4.1.1/fish-4.1.1-linux-aarch64.tar.xz",
       "checksum": "038F63005608B6769451CF73B4423C01972C0A768809E988538F84055DEB5C1F",
       "algorithm": "sha256"

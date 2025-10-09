@@ -19,4 +19,5 @@ tasks:
       It installs necessary tools and sets up the environment.
     cmds:
       - run-dir scripts/hooks/post-start/vendor
+      - run-dir scripts/hooks/post-start/workarounds
       - run-dir scripts/hooks/post-start/user

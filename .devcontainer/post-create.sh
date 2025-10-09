@@ -1,4 +1,4 @@
-#!/usr/bin/xbash
+#!/usr/local/bin/xbash
 
 #================================================================
 # Ensure nonroot user owns files created during the container build

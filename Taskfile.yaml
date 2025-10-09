@@ -10,6 +10,9 @@ set:
 
 output: prefixed
 
+dotenv:
+  - .var.env
+
 includes:
   hook: tasks/hook
   check: tasks/check

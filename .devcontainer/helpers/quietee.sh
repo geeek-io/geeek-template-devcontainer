@@ -1,4 +1,4 @@
-#!/usr/bin/xbash
+#!/usr/local/bin/xbash
 
 STDOUT=$(cat -)
 FILE="$1"

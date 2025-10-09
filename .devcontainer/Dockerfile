@@ -13,7 +13,7 @@ ENV \
 	LANGUAGE='en_US.UTF-8' \
 	WORKSPACE_NAME=${WORKSPACE_NAME}
 
-COPY --chmod=555 ./.devcontainer/helpers/* /usr/bin/
+COPY --chmod=555 ./.devcontainer/helpers/* /usr/local/bin/
 
 RUN \
 	--mount=type=bind,source=./.devcontainer/layers/vendor/prepare-helpers.sh,destination=/layer.sh \
@@ -21,7 +21,7 @@ RUN \
 
 # Use a wrapper script, which sets strict environment,
 # as the shell for subsequent RUN instructions.
-SHELL ["/usr/bin/xbash"]
+SHELL ["/usr/local/bin/xbash"]
 
 RUN \
 	--mount=type=cache,target=/var/cache/dnf \

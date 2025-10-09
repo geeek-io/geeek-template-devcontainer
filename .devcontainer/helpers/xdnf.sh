@@ -1,4 +1,4 @@
-#!/usr/bin/xbash
+#!/usr/local/bin/xbash
 
 dnf \
 	--refresh \

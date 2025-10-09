@@ -1,3 +1,3 @@
-#!/usr/bin/xbash
+#!/usr/local/bin/xbash
 
 code --openExternal "$@"
